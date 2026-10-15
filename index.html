@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f2a4a">
+<meta name="description" content="L'Amérique Carcérale : la référence en français sur les prisons des États-Unis. Deux millions de détenus, 50 États, infractions, origines, religions, diplômes, argent, entreprises, histoire, comparaison mondiale, rapport intégré.">
+<title>L'Amérique Carcérale · Les prisons des États-Unis en chiffres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f3ee; --paper2:#ebe8e0; --card:#ffffff; --card2:#f6f4ef; --rule:#e1ddd3; --rule2:#cfcabd;
+  --ink:#14171d; --ink2:#3d4452; --muted:#6b7280; --faint:#9aa0ab;
+  --navy:#0f2a4a; --blue:#1f5fbf; --blue2:#5b8fd8; --blue3:#a9c4ea; --blue4:#dce7f6;
+  --red:#b8322a; --red2:#e3a39e; --gold:#b7791f; --green:#2f7d5b; --slate:#6b7a8f; --sand:#c9b89a;
+  --shadow:0 1px 2px rgba(20,23,29,.05),0 10px 30px rgba(20,23,29,.07);
+  --r:14px;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+:root[data-theme="dark"]{
+  --paper:#0f1419; --paper2:#151b22; --card:#171e27; --card2:#1d2530; --rule:#273140; --rule2:#344155;
+  --ink:#eef1f5; --ink2:#cdd3dc; --muted:#98a2b3; --faint:#6b7585;
+  --navy:#dce7f6; --blue:#6ea0ea; --blue2:#4a7fd0; --blue3:#2d558f; --blue4:#1b2d47;
+  --red:#e06a60; --red2:#6b2d29; --gold:#d9a548; --green:#5fb48e; --slate:#8b9ab0; --sand:#8c7f66;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;font-size:15px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.012em;margin:0;color:var(--ink)}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* top bar */
+header.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.topbar{display:flex;align-items:center;gap:16px;height:62px}
+.brand{display:flex;align-items:center;gap:11px;white-space:nowrap;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand .mark{width:34px;height:34px;border-radius:8px;background:var(--navy);display:grid;place-items:center}
+:root[data-theme="dark"] .brand .mark{background:var(--blue)}
+.brand .mark svg{width:19px;height:19px}
+.brand b{font-family:var(--serif);font-weight:700;font-size:18px}
+.brand small{display:block;color:var(--muted);font-size:11.5px;font-weight:500;margin-top:-2px;font-family:var(--sans)}
+.search{flex:1;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:7px 12px;min-width:0;max-width:560px;margin-left:auto}
+.search:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue4)}
+.search input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font:inherit;font-size:14px;min-width:0}
+.search kbd{font-family:var(--mono);font-size:11px;color:var(--faint);border:1px solid var(--rule);border-radius:5px;padding:0 6px}
+.search .clear{display:none;background:none;border:0;color:var(--muted);cursor:pointer;font-size:16px;line-height:1}
+.search.has .clear{display:block}
+.btn{border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 13px;cursor:pointer;font:inherit;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn:hover{border-color:var(--blue);color:var(--blue);text-decoration:none}
+.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+:root[data-theme="dark"] .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+nav.tabs{display:none;gap:4px;overflow-x:auto;padding:0 0 8px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--muted);padding:6px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--card)}
+nav.tabs a.active{color:#fff;background:var(--navy);border-color:var(--navy)}
+
+/* search panel */
+#searchPanel{display:none;position:fixed;z-index:60;right:24px;top:70px;width:min(640px,calc(100% - 48px));max-height:70vh;overflow:auto;background:var(--card);border:1px solid var(--rule);border-radius:14px;box-shadow:var(--shadow);padding:8px}
+#searchPanel.open{display:block}
+#searchPanel .hit{display:block;padding:10px 12px;border-radius:10px;color:var(--ink)}
+#searchPanel .hit:hover{background:var(--card2);text-decoration:none}
+#searchPanel .hit .sec{font-size:10.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em}
+#searchPanel .hit .txt{font-size:13.5px;color:var(--ink2);margin-top:2px}
+#searchPanel mark{background:var(--blue4);color:var(--ink);border-radius:3px;padding:0 2px}
+#searchPanel .none{padding:14px;color:var(--muted);font-size:14px}
+
+/* layout: sticky TOC + content */
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:44px;align-items:start}
+#app{min-width:0}
+body{overflow-x:hidden}
+aside.toc{position:sticky;top:78px;max-height:calc(100vh - 92px);overflow:auto;padding-right:6px;scrollbar-width:thin}
+aside.toc .part{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:16px 0 6px;padding-left:12px}
+aside.toc .part:first-child{margin-top:0}
+aside.toc a{display:flex;gap:9px;align-items:baseline;font-size:13.5px;color:var(--ink2);padding:5px 12px;border-left:2px solid transparent;border-radius:0 8px 8px 0}
+aside.toc a .n{font-family:var(--mono);font-size:11px;color:var(--faint);width:18px}
+aside.toc a:hover{text-decoration:none;background:var(--card)}
+aside.toc a.active{color:var(--blue);border-left-color:var(--blue);background:var(--card);font-weight:600}
+aside.toc a.active .n{color:var(--blue)}
+aside.toc .live{margin-top:18px;padding:12px;border:1px solid var(--rule);border-radius:12px;background:var(--card)}
+aside.toc .live .t{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:6px}
+aside.toc .live .t i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+aside.toc .live b{display:block;font-family:var(--mono);font-size:17px;margin-top:6px;font-weight:600}
+aside.toc .live span{font-size:11.5px;color:var(--muted);display:block;line-height:1.4}
+
+/* hero */
+.hero{padding:54px 0 34px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.kicker i{width:28px;height:2px;background:var(--blue);display:inline-block}
+.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04;font-weight:700;margin:16px 0 18px;max-width:18ch}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--blue)}
+.hero p.lead{font-size:18px;color:var(--ink2);max-width:66ch;margin:0 0 24px;line-height:1.6}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);border-radius:var(--r);background:var(--card);overflow:hidden;box-shadow:var(--shadow)}
+.stats > div{padding:22px 22px 20px;border-right:1px solid var(--rule)}
+.stats > div:last-child{border-right:0}
+.stats .v{font-family:var(--serif);font-size:44px;font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--navy)}
+.stats .v small{font-size:20px;color:var(--muted);font-weight:500;margin-left:3px;font-family:var(--sans)}
+.stats .k{font-size:13px;color:var(--ink2);margin-top:8px;font-weight:600}
+.stats .d{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* sections */
+section.sec{padding:52px 0 14px;scroll-margin-top:84px}
+.partband{display:flex;align-items:center;gap:14px;margin:60px 0 -26px;color:var(--faint);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.partband::after{content:"";flex:1;height:1px;background:var(--rule2)}
+.sec-head{margin-bottom:22px;max-width:76ch}
+.sec-head .num{font-family:var(--mono);font-size:12px;color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:8px;font-weight:600}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;line-height:1.1;margin-bottom:10px}
+.sec-head p{color:var(--ink2);margin:0;font-size:16px;line-height:1.6}
+.takeaway{border-left:3px solid var(--navy);background:var(--card);border-radius:0 12px 12px 0;padding:14px 18px;margin:0 0 20px;box-shadow:var(--shadow)}
+:root[data-theme="dark"] .takeaway{border-left-color:var(--blue)}
+.takeaway .t{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.takeaway ul{margin:0;padding-left:18px;color:var(--ink2);font-size:14px;display:grid;gap:4px}
+.takeaway li b{color:var(--ink)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g5{grid-template-columns:repeat(5,1fr)} .g1{grid-template-columns:1fr}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:22px 22px 18px;box-shadow:var(--shadow)}
+.card h3{font-size:18px;margin-bottom:4px;font-weight:600}
+.card .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+.card .src{color:var(--faint);font-size:11.5px;margin-top:12px;line-height:1.45;border-top:1px dashed var(--rule);padding-top:8px}
+.card.span2{grid-column:span 2}
+.card.span3{grid-column:span 3}
+.kpi{display:flex;flex-direction:column;gap:2px}
+.kpi .v{font-family:var(--serif);font-size:36px;font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--navy)}
+.kpi .v small{font-size:17px;color:var(--muted);font-weight:500;margin-left:3px;font-family:var(--sans)}
+.kpi .k{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:6px}
+.kpi .d{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--card2);color:var(--ink2);border:1px solid var(--rule);font-family:var(--mono)}
+.pill.up{color:var(--red);background:var(--red2);border-color:transparent} .pill.down{color:var(--green);background:#dbeee4;border-color:transparent}
+:root[data-theme="dark"] .pill.up{background:#3a1f1d} :root[data-theme="dark"] .pill.down{background:#1b3328}
+p.txt{color:var(--ink2);font-size:14px;margin:0 0 10px;line-height:1.6}
+p.txt b{color:var(--ink)}
+ul.facts{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+ul.facts li{position:relative;padding-left:16px;font-size:14px;color:var(--ink2);line-height:1.55}
+ul.facts li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+ul.facts li b{color:var(--ink)}
+.note{border-left:3px solid var(--gold);padding:10px 14px;background:var(--card2);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--ink2);line-height:1.55}
+.note b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:12.5px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+svg.chart text{font-family:var(--sans);fill:var(--ink2);font-size:13.5px}
+svg.chart text.v{fill:var(--ink);font-weight:600;font-family:var(--mono);font-size:12.5px}
+svg.chart.sm text{font-size:16px} svg.chart.sm text.v{font-size:15px}
+svg.chart .axis{stroke:var(--rule2)}
+svg.chart .gridl{stroke:var(--rule);stroke-dasharray:2 4}
+.tip{position:fixed;z-index:70;pointer-events:none;background:var(--ink);color:#fff;border-radius:8px;padding:8px 11px;font-size:12.5px;box-shadow:var(--shadow);display:none;max-width:280px;line-height:1.4}
+:root[data-theme="dark"] .tip{background:#fff;color:#14171d}
+.tip b{display:block;font-size:13px;margin-bottom:2px}
+.tip span{opacity:.8}
+
+.day{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.day div{background:var(--card2);border-radius:10px;padding:12px 14px;border-left:3px solid var(--blue)}
+.day b{display:block;font-family:var(--mono);font-size:20px;font-weight:600;color:var(--navy)}
+.day span{font-size:12px;color:var(--muted)}
+#progress{position:fixed;left:0;top:0;height:3px;background:var(--blue);width:0;z-index:60;transition:width .1s}
+.donutWrap{grid-template-columns:minmax(0,210px) minmax(0,1fr)!important;min-width:0}
+.g3>.card .donutWrap,.g3>.card .donutWrap svg{grid-template-columns:1fr!important;max-width:220px!important;margin:0 auto}
+.g3>.card .donutWrap .legend{display:flex!important;flex-wrap:wrap;gap:6px 14px;justify-content:center}
+@media (max-width:640px){.donutWrap{grid-template-columns:1fr!important}.donutWrap svg{margin:0 auto}}
+.card{min-width:0}
+.card>table.tbl{table-layout:fixed;word-break:break-word}
+#map{max-width:100%}
+@media (max-width:640px){.day{grid-template-columns:1fr}.card>table.tbl td,.card>table.tbl th{padding:6px 4px;font-size:12px}}
+.hero .picto{grid-template-columns:repeat(50,1fr);gap:3px;margin-top:12px}
+.hero .picto i{border-radius:3px 3px 1px 1px}
+@media (max-width:640px){.hero .picto{grid-template-columns:repeat(25,1fr);gap:2px}}
+/* pictogram */
+.picto{display:grid;grid-template-columns:repeat(20,1fr);gap:5px;margin:8px 0 4px}
+.picto i{display:block;aspect-ratio:1/1.5;border-radius:5px 5px 2px 2px;opacity:0;animation:pop .4s forwards;cursor:default}
+@keyframes pop{to{opacity:1}}
+
+/* state map */
+.maplay{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr);gap:18px;align-items:start}
+.maplay #mapHost{background:var(--card2);border-radius:12px;padding:10px}
+.maplay #geo{width:100%;height:auto;overflow:hidden!important}
+.maplay #mapHost{overflow:hidden}
+.bars2.cmp .r{grid-template-columns:118px 1fr 64px}
+.bars2.cmp .b{position:relative;overflow:visible}
+.bars2.cmp .b i{transition:width .6s}
+.bars2.cmp .b em{display:block;position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.55}
+.stbox{max-height:none}
+@media (max-width:860px){.maplay{grid-template-columns:1fr}}
+
+.seg{font-size:12px;font-weight:600;padding:5px 10px;border:1px solid var(--rule);border-radius:999px;cursor:pointer;color:var(--ink2);background:var(--card2)}
+.seg.on{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme=dark] .seg.on{background:var(--blue);border-color:var(--blue)}
+#geo .gs{cursor:pointer;transition:opacity .15s}
+#geo .gs:hover{stroke:var(--ink);stroke-width:1.8}
+#geo .gs.sel{stroke:var(--ink);stroke-width:2.2}
+
+#map .hx{cursor:pointer}
+#map .hx polygon{transition:transform .15s;transform-box:fill-box;transform-origin:center}
+#map .hx:hover polygon{stroke:var(--ink);stroke-width:2.5}
+#map .hx.sel polygon{stroke:var(--ink);stroke-width:3}
+@media print{header.top,aside.toc,.up,#progress,#searchPanel,.cta{display:none!important}.layout{display:block}.card{break-inside:avoid;box-shadow:none}body{background:#fff}}
+.map{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;max-width:720px}
+.map .st{aspect-ratio:1;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:600;color:#fff;cursor:pointer;transition:transform .15s;position:relative}
+.map .st small{font-size:9px;opacity:.85;font-weight:500}
+.map .st:hover{transform:scale(1.12);z-index:2;outline:2px solid var(--ink)}
+.map .st.sel{outline:2px solid var(--ink);transform:scale(1.08);z-index:2}
+.map .st.empty{visibility:hidden}
+.scale{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.scale span{white-space:nowrap;margin-right:4px}
+.scale i{display:block;width:34px;height:10px;border-radius:2px}
+.stbox{background:var(--card2);border-radius:12px;padding:16px}
+.stbox h4{font-family:var(--serif);font-size:22px;margin:0 0 2px}
+.stbox .rk{font-size:12px;color:var(--muted);margin-bottom:12px}
+.stbox .g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stbox .g div{background:var(--card);border-radius:10px;padding:10px 12px;border:1px solid var(--rule)}
+.stbox .g b{display:block;font-family:var(--mono);font-size:19px;font-weight:600;color:var(--navy)}
+.stbox .g span{font-size:11.5px;color:var(--muted)}
+.stbox select{width:100%;background:var(--card);border:1px solid var(--rule);color:var(--ink);border-radius:10px;padding:9px 10px;font:inherit;margin-bottom:12px}
+/* tables */
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+table.tbl th{text-align:left;color:var(--faint);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.07em;padding:8px 10px;border-bottom:1px solid var(--rule2);cursor:pointer;user-select:none;white-space:nowrap}
+table.tbl th.s{color:var(--blue)}
+table.tbl td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+table.tbl th.n{text-align:right}
+table.tbl tr:hover td{background:var(--card2)}
+.tblwrap{max-height:520px;overflow:auto;border:1px solid var(--rule);border-radius:10px}
+.tblwrap thead th{position:sticky;top:0;background:var(--card);z-index:1}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px;vertical-align:middle;font-family:var(--sans)}
+.tag.op{background:var(--red2);color:var(--red)} .tag.tel{background:var(--blue4);color:var(--blue)} .tag.food{background:#dbeee4;color:var(--green)} .tag.med{background:#ece7f8;color:#6b4fd6} .tag.com{background:#f3e7cf;color:var(--gold)} .tag.sur{background:#dcecee;color:#1f7a7f}
+:root[data-theme="dark"] .tag.food{background:#1b3328} :root[data-theme="dark"] .tag.med{background:#2b2342;color:#b9a6ff} :root[data-theme="dark"] .tag.com{background:#3b2f14} :root[data-theme="dark"] .tag.sur{background:#143336;color:#6fd3d8}
+/* companies */
+.co{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start}
+.co .logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:16px;color:#fff;background:var(--navy)}
+.co h4{font-size:16px;margin:0 0 2px;font-family:var(--sans);font-weight:700}
+.co .meta{font-size:12px;color:var(--faint);margin-bottom:6px}
+.co p{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.55}
+.co .num{display:flex;gap:18px;margin-top:10px;flex-wrap:wrap}
+.co .num b{display:block;font-family:var(--mono);font-size:17px;font-weight:600;color:var(--navy)}
+.co .num span{font-size:11.5px;color:var(--muted)}
+/* timeline */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--rule2)}
+.timeline .ev{position:relative;padding:0 0 16px}
+.timeline .ev::before{content:"";position:absolute;left:-21px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px var(--blue4)}
+.timeline .ev .y{font-family:var(--mono);color:var(--blue);font-size:12px;font-weight:600}
+.timeline .ev .t{font-weight:700;font-size:14.5px}
+.timeline .ev .d{color:var(--ink2);font-size:13.5px}
+/* sim */
+.sim label{display:block;font-size:13px;color:var(--ink2);margin:10px 0 6px;font-weight:500}
+.sim select,.sim input[type=number]{width:100%;background:var(--card2);border:1px solid var(--rule);color:var(--ink);border-radius:10px;padding:9px 10px;font:inherit}
+.sim input[type=range]{width:100%;accent-color:var(--blue)}
+.sim .out{margin-top:14px;background:var(--card2);border-radius:12px;padding:14px}
+.sim .out .v{font-family:var(--serif);font-size:34px;font-weight:700;line-height:1.05;color:var(--navy)}
+.sim .out .s{color:var(--ink2);font-size:13px;margin-top:6px;line-height:1.5}
+.bars2{display:grid;gap:8px}
+.bars2 .r{display:grid;grid-template-columns:130px 1fr 80px;gap:10px;align-items:center;font-size:13px}
+.bars2 .r .b{height:12px;border-radius:4px;background:var(--card2);overflow:hidden}
+.bars2 .r .b i{display:block;height:100%;border-radius:4px;background:var(--blue);width:0;transition:width 1s ease}
+.bars2 .r .n{font-family:var(--mono);text-align:right;font-size:12px}
+/* quiz */
+.q{margin-bottom:16px}
+.q .qt{font-weight:600;font-size:15px;margin-bottom:8px}
+.q .opts{display:grid;gap:6px;grid-template-columns:1fr 1fr}
+.q .opt{text-align:left;background:var(--card2);border:1px solid var(--rule);border-radius:10px;padding:9px 12px;color:var(--ink);font:inherit;font-size:13.5px;cursor:pointer}
+.q .opt:hover{border-color:var(--blue)}
+.q .opt.ok{border-color:var(--green);background:#dbeee4;color:var(--ink)}
+.q .opt.ko{border-color:var(--red);background:var(--red2)}
+:root[data-theme="dark"] .q .opt.ok{background:#1b3328}
+.q .exp{display:none;font-size:13px;color:var(--ink2);margin-top:8px;padding:8px 12px;border-left:3px solid var(--blue);background:var(--card2);border-radius:0 8px 8px 0}
+.q.done .exp{display:block}
+/* report */
+.report{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:40px 44px;box-shadow:var(--shadow)}
+.report h3{font-size:24px;margin:30px 0 10px}
+.report h3:first-of-type{margin-top:0}
+.report p{color:var(--ink2);font-size:15.5px;margin:0 0 12px;line-height:1.65}
+.report p b{color:var(--ink)}
+.report .pull{font-family:var(--serif);font-size:24px;font-weight:500;font-style:italic;color:var(--navy);border-left:3px solid var(--blue);padding:6px 20px;margin:20px 0;line-height:1.35}
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 10px}
+.verdict div{background:var(--card2);border-radius:12px;padding:14px}
+.verdict b{display:block;font-family:var(--serif);font-size:28px;color:var(--navy)}
+.verdict span{font-size:12px;color:var(--muted)}
+dl.gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin:0}
+dl.gloss div{background:var(--card2);border-radius:10px;padding:11px 13px}
+dl.gloss dt{font-weight:700;font-size:13.5px}
+dl.gloss dd{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+ol.src{margin:0;padding-left:20px;font-size:13px;color:var(--ink2);display:grid;gap:6px}
+ol.src b{color:var(--ink)}
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--rule);margin-top:50px}
+footer .f{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.up{position:fixed;right:18px;bottom:18px;z-index:40;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;border:0;font-size:17px;cursor:pointer;box-shadow:var(--shadow);opacity:0;transition:opacity .3s}
+.up.show{opacity:1}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s,transform .55s;animation:forceIn 0s 1.4s forwards}
+@keyframes forceIn{to{opacity:1;transform:none}}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:1080px){.layout{grid-template-columns:1fr} aside.toc{display:none} nav.tabs{display:flex} .g4,.g5{grid-template-columns:repeat(2,1fr)} .stats{grid-template-columns:repeat(2,1fr)} .stats > div:nth-child(2){border-right:0} .stats > div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
+@media (max-width:860px){.g3{grid-template-columns:repeat(2,1fr)} .card.span3{grid-column:span 2} .verdict{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.g2,.g3,.g4,.g5{grid-template-columns:1fr} .card.span2,.card.span3{grid-column:auto} .brand small{display:none} .search kbd{display:none} .topbar{flex-wrap:wrap;height:auto;padding:10px 0} .search{order:3;flex:1 0 100%;max-width:none} .hero{padding:30px 0 20px} .bars2 .r{grid-template-columns:96px 1fr 70px} dl.gloss{grid-template-columns:1fr} .report{padding:22px} .picto{grid-template-columns:repeat(10,1fr)} .verdict{grid-template-columns:1fr} .stats{grid-template-columns:1fr} .stats > div{border-right:0;border-bottom:1px solid var(--rule)} .q .opts{grid-template-columns:1fr} .map{gap:2px} .map .st{font-size:9px;border-radius:3px} .map .st small{display:none} .stbox .g{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="top">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M5 3v18M10 3v18M15 3v18M20 3v18"/><path d="M3 8h19M3 16h19" opacity=".5"/></svg></span>
+        <span><b>L'Amérique Carcérale</b><small>Les prisons des États-Unis en chiffres · édition 2026</small></span>
+      </a>
+      <div class="search" id="searchBox">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Rechercher : Texas, ICE, religion, GED, CoreCivic, récidive, 13e amendement…" autocomplete="off">
+        <button class="clear" id="qClear" aria-label="Effacer">×</button>
+        <kbd>/</kbd>
+      </div>
+      <button class="btn" id="themeBtn" title="Thème clair / sombre"><span id="themeIco">☾</span></button>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+</header>
+<div id="searchPanel"></div>
+<div class="tip" id="tip"></div>
+
+<main class="wrap" id="top">
+<section class="hero">
+  <span class="kicker"><i></i>Référence · données 2023 à 2026 · 19 chapitres · 50 États · 66 graphiques</span>
+  <h1>Un pays, <em>deux millions</em> de personnes sous les verrous.</h1>
+  <p class="lead">Les États-Unis enferment plus de monde que n'importe quelle autre démocratie, et plus que la Chine. Cette application rassemble en français tout ce qu'il faut pour comprendre leur système carcéral : qui est détenu, pourquoi, où, à quel prix, qui en profite, et comment on en est arrivé là.</p>
+  <div class="cta">
+    <a class="btn primary" href="#panorama">Commencer par le panorama</a>
+    <a class="btn" href="#etats">Explorer les 50 États</a>
+    <a class="btn" href="#rapport">Lire le rapport intégré</a>
+    <a class="btn" href="#quiz">Quiz en dix questions</a>
+  </div>
+  <div class="card" style="margin-bottom:16px;padding:18px 22px 14px"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 style="font-size:16px">Cent personnes détenues, à l’échelle</h3><span style="font-size:12px;color:var(--muted)">Chaque silhouette représente 1 % des 1,98 million de personnes incarcérées. Survolez.</span></div><div class="picto" id="picto"></div><div class="legend" id="pictoLeg"></div></div>
+  <div class="stats">
+    <div><div class="v mono" id="heroCount" data-to="1980000">0</div><div class="k">personnes incarcérées un jour donné</div><div class="d">Toutes formes de détention confondues, Prison Policy Initiative, mars 2026</div></div>
+    <div><div class="v">580</div><div class="k">détenus pour 100 000 habitants</div><div class="d">France : 124 · Allemagne : 69 · Japon : 33</div></div>
+    <div><div class="v">445<small>Md$</small></div><div class="k">coût annuel du système pénal</div><div class="d">Soit 1,2 milliard de dollars par jour, estimation 2025</div></div>
+    <div><div class="v">42<small>%</small></div><div class="k">des détenus sont noirs</div><div class="d">Pour 14 % de la population américaine</div></div>
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="toc" id="toc"></aside>
+  <div id="app"></div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f">
+      <div><b style="color:var(--ink)">L'Amérique Carcérale</b> · Abdoul Hamid Diallo · application de données en un seul fichier.<br>Sources principales : Bureau of Justice Statistics, Prison Policy Initiative (The Whole Pie 2026), Federal Bureau of Prisons, ICE, Pew Research Center, Vera Institute, World Prison Brief, Death Penalty Information Center, National Registry of Exonerations, rapports annuels CoreCivic et GEO Group.</div>
+      <div>Mise à jour : octobre 2026</div>
+    </div>
+  </div>
+</footer>
+<button class="up" id="upBtn" aria-label="Haut de page">↑</button>
+<script>
+/* =========================================================
+   L'Amérique Carcérale · données et rendu
+   Toutes les valeurs sont documentées dans la section Sources.
+   ========================================================= */
+const C={amber:'var(--blue)',steel:'var(--blue2)',red:'var(--red)',green:'var(--green)',violet:'#6b4fd6',teal:'#1f7a7f',pink:'var(--sand)',grey:'var(--slate)',amber2:'var(--gold)',navy:'var(--navy)',blue2:'var(--blue2)'};
+const fmt=n=>Math.round(n).toLocaleString('fr-FR').replace(/ | /g,' ');
+const pct=(n,d=0)=>n.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d})+' %';
+const money=n=>{ if(n>=1e9) return (n/1e9).toLocaleString('fr-FR',{maximumFractionDigits:1})+' Md$'; if(n>=1e6) return (n/1e6).toLocaleString('fr-FR',{maximumFractionDigits:1})+' M$'; return fmt(n)+' $';};
+
+const PARTS=[
+ ['I · L’ampleur',[['essentiel','L’essentiel en 60 secondes'],['panorama','Panorama'],['lieux','Prisons, jails, fédéral'],['etats','Les 50 États'],['monde','Face au monde']]],
+ ['II · Les personnes',[['profil','Qui est détenu'],['education','Niveau d’études'],['religion','Religions'],['femmes','Les femmes']]],
+ ['III · Le système',[['infractions','Les infractions'],['vie','Vie, santé, récidive'],['histoire','Un siècle d’histoire']]],
+ ['IV · L’argent',[['argent','Ce que ça coûte'],['entreprises','Qui en profite']]],
+ ['V · Outils',[['simulateur','Simulateur'],['quiz','Quiz'],['fiche','Fiche récapitulative'],['rapport','Rapport intégré'],['sources','Sources et glossaire']]]
+];
+const SECTIONS=PARTS.flatMap(pt=>pt[1]);
+
+/* ---------- DONNÉES ---------- */
+const PIE=[
+ {k:'Prisons d’État',v:1098000,c:C.amber,d:'1 566 établissements, détenus condamnés le plus souvent pour un crime (felony)'},
+ {k:'Jails locales',v:546000,c:C.steel,d:'3 116 prisons de comté ou de ville ; 426 000 personnes non encore jugées'},
+ {k:'Système fédéral',v:201000,c:C.red,d:'Bureau of Prisons (145 000) et U.S. Marshals (56 000)'},
+ {k:'Détention migratoire (ICE)',v:71000,c:C.violet,d:'Détention civile, sans condamnation, 220 centres'},
+ {k:'Mineurs',v:29000,c:C.teal,d:'1 277 établissements pour jeunes'},
+ {k:'Internement contraint',v:25000,c:C.pink,d:'Hôpitaux psychiatriques d’État et centres d’internement civil'},
+ {k:'Territoires',v:7000,c:C.green,d:'Porto Rico, Guam, Îles Vierges, Samoa, Mariannes'},
+ {k:'Jails en territoire amérindien',v:2000,c:C.grey,d:'77 établissements tribaux'},
+ {k:'Prisons militaires',v:1000,c:C.grey,d:'1 008 personnes au 31 décembre 2024'}
+];
+const STATE_OFF=[
+ {k:'Violence',v:684000,c:C.red,sub:[['Meurtre',166000],['Viol et agression sexuelle',172000],['Agression (assault)',159000],['Vol avec violence (robbery)',122000],['Autres violences',43000],['Homicide involontaire',21000]]},
+ {k:'Atteintes aux biens',v:138000,c:C.steel,sub:[['Cambriolage',76000],['Vol simple',26000],['Autres',16000],['Fraude',12000],['Vol de voiture',8000]]},
+ {k:'Stupéfiants',v:139000,c:C.green,sub:[['Trafic et autres',99000],['Simple possession',40000]]},
+ {k:'Ordre public',v:130000,c:C.violet,sub:[['Armes',51000],['Autres',62000],['Conduite en état d’ivresse',17000]]},
+ {k:'Autres',v:7000,c:C.grey,sub:[]}
+];
+const FED_OFF=[{k:'Stupéfiants',v:66000,c:C.green},{k:'Ordre public (armes, immigration…)',v:63000,c:C.violet},{k:'Violence',v:11000,c:C.red},{k:'Biens',v:5000,c:C.steel}];
+const JAIL_NC=[{k:'Violence',v:135000,c:C.red},{k:'Stupéfiants',v:108000,c:C.green},{k:'Biens',v:106000,c:C.steel},{k:'Ordre public',v:75000,c:C.violet}];
+const JAIL_C=[{k:'Ordre public',v:36000,c:C.violet},{k:'Biens',v:30000,c:C.steel},{k:'Stupéfiants',v:28000,c:C.green},{k:'Violence',v:26000,c:C.red}];
+const RACE_SHARE=[['Noirs',33,13.6],['Blancs',31,58.4],['Hispaniques',23,19.5],['Amérindiens et natifs d’Alaska',2,1.3],['Asiatiques et Pacifique',1,6.4]];
+const RACE_RATE=[{k:'Adultes noirs',v:1218,c:C.red},{k:'Amérindiens et natifs d’Alaska',v:1045,c:C.amber},{k:'Hispaniques',v:606,c:C.violet},{k:'Blancs',v:231,c:C.steel},{k:'Asiatiques et Pacifique',v:88,c:C.teal}];
+const SEX=[{k:'Hommes',v:871,c:C.steel},{k:'Femmes',v:64,c:C.pink}];
+const EDU=[['Collège ou moins (8e année)',14.2,7.2],['Lycée inachevé',25.5,11.2],['GED (équivalence obtenue par examen)',28.5,4.8],['Diplôme de lycée',20.5,33.2],['Études supérieures sans diplôme',9.0,26.9],['Diplôme universitaire',2.4,21.8]];
+const REL_STATE=[{k:'Protestants',v:51,c:C.steel},{k:'Catholiques',v:15,c:C.amber2},{k:'Musulmans',v:9,c:C.green},{k:'Sans religion',v:11,c:C.grey},{k:'Spiritualité amérindienne',v:3,c:C.teal},{k:'Païens et religions de la terre',v:2,c:C.violet},{k:'Juifs',v:2,c:C.pink},{k:'Bouddhistes, hindous, autres',v:7,c:C.red}];
+const REL_BOP=[{k:'Catholiques',v:30.6,c:C.amber2},{k:'Protestants (toutes dénominations)',v:32.4,c:C.steel},{k:'Musulmans (dont Nation of Islam, Moorish)',v:8.8,c:C.green},{k:'Sans préférence',v:12.6,c:C.grey},{k:'Amérindiens',v:3.2,c:C.teal},{k:'Rastafariens',v:1.9,c:C.red},{k:'Juifs',v:1.2,c:C.pink},{k:'Bouddhistes',v:1.1,c:C.violet},{k:'Autres et inconnu',v:8.2,c:C.amber2}];
+const HIST=[[1925,91669],[1930,129453],[1940,173706],[1950,166123],[1960,212953],[1970,196429],[1975,240593],[1980,319598],[1985,480568],[1990,739980],[1995,1085022],[2000,1391261],[2005,1525924],[2008,1608282],[2009,1615487],[2010,1613803],[2012,1570400],[2015,1526603],[2017,1489363],[2019,1430805],[2020,1215821],[2021,1204300],[2022,1230100],[2023,1254200]];
+const WORLD=[['El Salvador',1659],['Cuba',794],['Rwanda',620],['Turkménistan',576],['États-Unis',542],['Turquie',468],['Brésil',390],['Russie',300],['Mexique',180],['Australie',162],['Angleterre et Galles',146],['France',124],['Espagne',123],['Chine',119],['Italie',104],['Canada',90],['Allemagne',69],['Pays-Bas',65],['Norvège',56],['Inde',41],['Japon',33]];
+const WORLD_ABS=[['États-Unis',1800000],['Chine',1690000],['Brésil',900000],['Inde',573000],['Russie',400000],['Turquie',400000],['Thaïlande',280000],['Mexique',235000],['Iran',190000],['Indonésie',270000]];
+const SPEND=[{k:'Police',v:2017,c:C.steel},{k:'Corrections',c:C.amber},{k:'Tribunaux',c:C.violet},{k:'Immigration (police et détention)',c:C.red}];
+
+/* ---------- UTILITAIRES SVG ---------- */
+const tip=document.getElementById('tip');
+function bindTips(root){
+  root.querySelectorAll('[data-tip]').forEach(el=>{
+    el.addEventListener('mousemove',e=>{tip.style.display='block';tip.innerHTML=el.dataset.tip;const w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+14,y=e.clientY+14;if(x+w>innerWidth-10)x=e.clientX-w-14;if(y+h>innerHeight-10)y=e.clientY-h-14;tip.style.left=x+'px';tip.style.top=y+'px';});
+    el.addEventListener('mouseleave',()=>tip.style.display='none');
+    el.addEventListener('touchstart',e=>{tip.style.display='block';tip.innerHTML=el.dataset.tip;tip.style.left=Math.min(e.touches[0].clientX,innerWidth-270)+'px';tip.style.top=(e.touches[0].clientY-70)+'px';setTimeout(()=>tip.style.display='none',2200);},{passive:true});
+  });
+}
+function hbars(items,o={}){
+  const max=o.max||Math.max(...items.map(i=>i.v)); const W=o.W||500, rh=o.rh||(W>900?34:W<500?27:30), lw=o.lw||170, bw=W-lw-90;
+  const H=items.length*rh+6;
+  let s=`<svg class="chart${W<500?' sm':''}" viewBox="0 0 ${W} ${H}">`;
+  items.forEach((it,i)=>{const y=i*rh+4;const w=Math.max(2,it.v/max*bw);
+    s+=`<g data-tip="<b>${it.k}</b><span>${o.fmtTip?o.fmtTip(it):fmt(it.v)+(o.unit||'')}</span>${it.d?'<br><span>'+it.d+'</span>':''}">
+    <text x="${lw-10}" y="${y+rh/2+4}" text-anchor="end">${it.k.length>26?it.k.slice(0,25)+'…':it.k}</text>
+    <rect x="${lw}" y="${y+6}" width="${bw}" height="${rh-12}" rx="6" fill="var(--card2)"/>
+    <rect class="bar" x="${lw}" y="${y+6}" width="0" height="${rh-12}" rx="6" fill="${it.c||C.amber}" data-w="${w}"/>
+    <text class="v" x="${lw+w+8}" y="${y+rh/2+4}">${o.fmtV?o.fmtV(it):fmt(it.v)+(o.unit||'')}</text></g>`;});
+  return s+'</svg>';
+}
+function donut(items,o={}){
+  const tot=items.reduce((a,b)=>a+b.v,0); const R=92,r=58,cx=110,cy=110; let a0=-Math.PI/2; let s=`<div style="display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:center" class="donutWrap"><svg class="chart" viewBox="0 0 220 220" style="max-width:220px">`;
+  items.forEach(it=>{const a1=a0+it.v/tot*2*Math.PI; const big=a1-a0>Math.PI?1:0;
+    const p=(R,a)=>[cx+R*Math.cos(a),cy+R*Math.sin(a)];
+    const [x1,y1]=p(R,a0),[x2,y2]=p(R,a1),[x3,y3]=p(r,a1),[x4,y4]=p(r,a0);
+    s+=`<path d="M${x1},${y1} A${R},${R} 0 ${big} 1 ${x2},${y2} L${x3},${y3} A${r},${r} 0 ${big} 0 ${x4},${y4} Z" fill="${it.c}" stroke="var(--card)" stroke-width="2" data-tip="<b>${it.k}</b><span>${o.fmtTip?o.fmtTip(it,tot):fmt(it.v)+' · '+pct(it.v/tot*100,1)}</span>"/>`; a0=a1;});
+  s+=`<text x="${cx}" y="${cy-4}" text-anchor="middle" style="font-family:Fraunces,serif;font-size:22px;font-weight:800;fill:var(--text)">${o.center||fmt(tot)}</text><text x="${cx}" y="${cy+16}" text-anchor="middle" style="font-size:11px">${o.centerLabel||''}</text></svg><div class="legend" style="display:grid;gap:6px;margin:0">`;
+  items.forEach(it=>{s+=`<div><i style="background:${it.c}"></i>${it.k} <b style="color:var(--text)">${o.fmtL?o.fmtL(it,tot):pct(it.v/tot*100,it.v/tot<0.02?1:0)}</b></div>`;});
+  return s+'</div></div>';
+}
+function lineChart(pts,o={}){
+  const W=o.W||720,H=o.W?o.W*0.4:280,ml=60,mr=20,mt=16,mb=36; const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  const x0=Math.min(...xs),x1=Math.max(...xs),y1=o.ymax||Math.max(...ys)*1.08;
+  const X=x=>ml+(x-x0)/(x1-x0)*(W-ml-mr), Y=y=>mt+(1-y/y1)*(H-mt-mb);
+  let s=`<svg class="chart" viewBox="0 0 ${W} ${H}">`;
+  const ticks=o.yticks||5; for(let i=0;i<=ticks;i++){const v=y1/ticks*i;s+=`<line class="gridl" x1="${ml}" x2="${W-mr}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${ml-8}" y="${Y(v)+4}" text-anchor="end">${o.fmtY?o.fmtY(v):fmt(v)}</text>`;}
+  (o.xticks||[]).forEach(t=>{s+=`<text x="${X(t)}" y="${H-10}" text-anchor="middle">${t}</text>`;});
+  (o.marks||[]).forEach(m=>{s+=`<line x1="${X(m[0])}" x2="${X(m[0])}" y1="${mt}" y2="${H-mb}" stroke="var(--amber)" stroke-dasharray="2 4" opacity=".7"/><text x="${X(m[0])+4}" y="${mt+10}" style="font-size:10.5px;fill:var(--amber)">${m[1]}</text>`;});
+  const d=pts.map((p,i)=>(i?'L':'M')+X(p[0])+','+Y(p[1])).join(' ');
+  s+=`<path d="${d} L${X(x1)},${Y(0)} L${X(x0)},${Y(0)} Z" fill="url(#gl)" opacity=".35"/><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.amber}"/><stop offset="1" stop-color="${C.amber}" stop-opacity="0"/></linearGradient></defs>`;
+  s+=`<path d="${d}" fill="none" stroke="${C.amber}" stroke-width="3" stroke-linejoin="round" class="ln"/>`;
+  pts.forEach(p=>{s+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="6" fill="transparent" data-tip="<b>${p[0]}</b><span>${o.fmtTip?o.fmtTip(p):fmt(p[1])}</span>"/><circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3" fill="var(--card)" stroke="${C.amber}" stroke-width="2" pointer-events="none"/>`;});
+  return s+'</svg>';
+}
+function pairBars(rows,o={}){ // rows: [label, a, b]
+  const max=o.max||Math.max(...rows.flatMap(r=>[r[1],r[2]]))*1.05; const W=o.W||500,rh=W>900?52:46,lw=o.lw||190,bw=W-lw-70;
+  let s=`<svg class="chart${W<500?' sm':''}" viewBox="0 0 ${W} ${rows.length*rh+8}">`;
+  rows.forEach((r,i)=>{const y=i*rh+4;
+    s+=`<text x="${lw-10}" y="${y+rh/2+4}" text-anchor="end">${r[0].length>28?r[0].slice(0,27)+'…':r[0]}</text>`;
+    [[r[1],o.ca||C.amber,o.la||'A',y+6],[r[2],o.cb||C.steel,o.lb||'B',y+24]].forEach(([v,c,l,yy])=>{const w=v/max*bw;
+      s+=`<g data-tip="<b>${r[0]}</b><span>${l} : ${o.fmtTip?o.fmtTip(v):v}</span>"><rect x="${lw}" y="${yy}" width="${bw}" height="14" rx="5" fill="var(--card2)"/><rect class="bar" x="${lw}" y="${yy}" width="0" height="14" rx="5" fill="${c}" data-w="${w}"/><text class="v" x="${lw+w+6}" y="${yy+11}">${o.fmtV?o.fmtV(v):v}</text></g>`;});
+  });
+  return s+'</svg>'+`<div class="legend"><span><i style="background:${o.ca||C.amber}"></i>${o.la}</span><span><i style="background:${o.cb||C.steel}"></i>${o.lb}</span></div>`;
+}
+function vbars(items,o={}){
+  const max=o.max||Math.max(...items.map(i=>i.v))*1.1; const W=o.W||720,H=260,ml=10,mb=40,mt=20; const n=items.length,gap=10,bw=(W-ml*2-gap*(n-1))/n;
+  let s=`<svg class="chart${W<500?' sm':''}" viewBox="0 0 ${W} ${H}">`;
+  items.forEach((it,i)=>{const x=ml+i*(bw+gap),h=it.v/max*(H-mb-mt),y=H-mb-h;
+    s+=`<g data-tip="<b>${it.k}</b><span>${o.fmtTip?o.fmtTip(it):fmt(it.v)}</span>${it.d?'<br><span>'+it.d+'</span>':''}"><rect x="${x}" y="${H-mb-(H-mb-mt)}" width="${bw}" height="${H-mb-mt}" fill="var(--card2)" rx="6"/><rect class="barv" x="${x}" y="${H-mb}" width="${bw}" height="0" rx="6" fill="${it.c||C.amber}" data-h="${h}" data-y="${y}"/><text class="v" x="${x+bw/2}" y="${y-6}" text-anchor="middle">${o.fmtV?o.fmtV(it):fmt(it.v)}</text><text x="${x+bw/2}" y="${H-mb+16}" text-anchor="middle" style="font-size:11px">${it.k.length>14?it.k.slice(0,13)+'…':it.k}</text></g>`;});
+  return s+'</svg>';
+}
+function slope(rows,o={}){ // rows:[label,a,b]
+ const W=o.W||520,H=o.H||330,ml=170,mr=170,mt=24,mb=30; const max=o.max||Math.max(...rows.flatMap(r=>[r[1],r[2]]))*1.05;
+ const Y=v=>mt+(1-v/max)*(H-mt-mb); const x1=ml,x2=W-mr;
+ let s=`<svg class="chart" viewBox="0 0 ${W} ${H}"><line class="axis" x1="${x1}" x2="${x1}" y1="${mt}" y2="${H-mb}"/><line class="axis" x1="${x2}" x2="${x2}" y1="${mt}" y2="${H-mb}"/><text x="${x1}" y="${H-8}" text-anchor="middle" style="font-weight:600">${o.la}</text><text x="${x2}" y="${H-8}" text-anchor="middle" style="font-weight:600">${o.lb}</text>`;
+ const ys=rows.map(r=>Y(r[1]));for(let i=1;i<ys.length;i++){if(ys[i]-ys[i-1]<17)ys[i]=ys[i-1]+17;}const ye=rows.map(r=>Y(r[2]));for(let i=1;i<ye.length;i++){if(ye[i]-ye[i-1]<17)ye[i]=ye[i-1]+17;}
+ rows.forEach((r,ri)=>{const c=r[3]||C.amber;s+=`<g data-tip="<b>${r[0]}</b><span>${o.la} : ${o.f?o.f(r[1]):r[1]} · ${o.lb} : ${o.f?o.f(r[2]):r[2]} (${Math.round((r[2]/r[1]-1)*100)} %)</span>"><line x1="${x1}" y1="${Y(r[1])}" x2="${x2}" y2="${Y(r[2])}" stroke="${c}" stroke-width="2.5"/><circle cx="${x1}" cy="${Y(r[1])}" r="4.5" fill="${c}"/><circle cx="${x2}" cy="${Y(r[2])}" r="4.5" fill="${c}"/><text x="${x1-10}" y="${ys[ri]+4}" text-anchor="end">${r[0]} <tspan class="v">${o.f?o.f(r[1]):r[1]}</tspan></text><text class="v" x="${x2+10}" y="${ye[ri]+4}">${o.f?o.f(r[2]):r[2]} <tspan style="fill:var(--muted);font-weight:500;font-family:var(--sans)">${Math.round((r[2]/r[1]-1)*100)} %</tspan></text></g>`;});
+ return s+'</svg>';
+}
+function kpi(v,k,d,unit){return `<div class="card kpi"><div class="v">${v}${unit?'<small>'+unit+'</small>':''}</div><div class="k">${k}</div>${d?'<div class="d">'+d+'</div>':''}</div>`;}
+function card(h,sub,body,src,cls=''){return `<div class="card ${cls}">${h?'<h3>'+h+'</h3>':''}${sub?'<p class="sub">'+sub+'</p>':''}${body}${src?'<div class="src">Source : '+src+'</div>':''}</div>`;}
+function head(id,n,t,p,take){return `<section class="sec" id="${id}"><div class="sec-head"><span class="num">${n}</span><h2>${t}</h2><p>${p}</p></div>${take?`<div class="takeaway"><div class="t">À retenir</div><ul>${take.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`:''}`;}
+
+/* ---------- SECTIONS ---------- */
+const S={};
+
+
+S.essentiel=()=>head('essentiel','01 · L’ESSENTIEL','Le système carcéral américain en 60 secondes','Dix chiffres à connaître, une journée ordinaire dans le système, et une comparaison avec la France pour donner l’échelle.')+`
+<div class="grid g5">
+ ${kpi('1,98','million de personnes détenues','Un jour donné, toutes formes confondues','M')}
+ ${kpi('580','pour 100 000 habitants','5e taux mondial, 1er des démocraties')}
+ ${kpi('47','détenus pour une infraction « violente »','Une catégorie juridique très large','%')}
+ ${kpi('426 000','personnes en jail jamais jugées','Présumées innocentes, souvent faute de caution')}
+ ${kpi('5×','le taux des Noirs par rapport aux Blancs','1 218 contre 231 pour 100 000 adultes')}
+ ${kpi('41','sans diplôme de lycée ni GED','Contre 18 % des Américains','%')}
+ ${kpi('9','de musulmans parmi les détenus','Contre 1 % dans la population','%')}
+ ${kpi('445','milliards de dollars par an','Police, tribunaux, corrections, immigration','Md$')}
+ ${kpi('< 9','des détenus dans le privé','Mais 61 % des détenus de l’ICE','%')}
+ ${kpi('82','rearrêtés dans les dix ans','Surtout pour des faits mineurs','%')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Une journée ordinaire dans le système','Chiffres annuels ramenés à 24 heures.',`<div class="day">${[['20 800','entrées en jail'],['1 290','admissions en prison'],['1 240','libérations de prison'],['13','morts en prison d’État ou fédérale'],['1,22 Md$','dépensés par les administrations'],['7,9 M$','payés par les familles (téléphone, cantine)'],['2 740','arrestations pour stupéfiants'],['0,13','exécution (48 en 2025)']].map(d=>`<div><b>${d[0]}</b><span>${d[1]}</span></div>`).join('')}</div>`,'Calculs de l’application d’après BJS, PPI, FBI et DPIC (7,6 M passages en jail, 472 300 admissions, 453 200 libérations, 4 896 décès, 445 Md$, 2,9 Md$, 1 M d’arrestations, 48 exécutions).')}
+ ${card('États-Unis et France, côte à côte','Pour donner l’échelle à un lecteur francophone.',`<table class="tbl"><thead><tr><th></th><th class="n">États-Unis</th><th class="n">France</th><th class="n">Rapport</th></tr></thead><tbody>${[['Personnes détenues','1 980 000','85 000','23 ×'],['Taux pour 100 000 habitants','580','124','4,7 ×'],['Part des détenus non jugés','≈ 23 %','≈ 27 %','0,9 ×'],['Femmes parmi les détenus','≈ 10 %','≈ 3,5 %','2,9 ×'],['Coût annuel par détenu (ordre de grandeur)','33 000 $ à 69 000 $','≈ 45 000 €','≈ 1 ×'],['Peine de mort','12 États ont exécuté en 2025','Abolie en 1981','']].map(r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td class="n" style="color:var(--blue)">${r[3]}</td></tr>`).join('')}</tbody></table><p class="txt" style="margin-top:10px">La France, avec un taux record pour elle (85 000 détenus en 2025, prisons occupées à plus de 130 %), reste <b>près de cinq fois</b> en dessous du taux américain.</p>`,'PPI 2026 ; ministère de la Justice (statistique mensuelle des personnes écrouées, 2025) ; World Prison Brief.')}
+</div></section>`;
+
+S.panorama=()=>head('panorama','02 · PANORAMA','La photographie complète','Le « Whole Pie » de Prison Policy Initiative est la seule mesure qui additionne toutes les formes d’enfermement. Un jour donné de 2026, près de deux millions de personnes sont détenues dans des milliers de systèmes différents.',[`<b>1,98 million</b> de personnes incarcérées un jour donné, dans des milliers de systèmes distincts.`,`Un tiers sont en <b>jail</b> locale, et la plupart de ceux-là n’ont pas été jugés.`,`Toute la croissance de l’année vient de la <b>détention migratoire</b> (+58 %).`])+`
+<div class="grid g4">
+ ${kpi('1,98','personnes incarcérées un jour donné','Toutes formes de détention, mars 2026','M')}
+ ${kpi('1 254 200','détenus en prison d’État ou fédérale','Fin 2023, en hausse de 2 % sur un an (BJS)')}
+ ${kpi('7,6','passages en jail chaque année','Les jails locales sont la porte d’entrée du système','M')}
+ ${kpi('472 300','admissions en prison par an','Pour 453 200 libérations en 2023')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Où sont enfermés les deux millions ?','Population un jour donné, par type d’établissement. Survolez les segments.',donut(PIE,{center:'1,98 M',centerLabel:'personnes'}),'Prison Policy Initiative, Mass Incarceration: The Whole Pie 2026 (données collectées entre 2023 et janvier 2026).','span2')}
+ ${card('Au-delà des murs : le contrôle correctionnel','L’enfermement n’est qu’un tiers de l’ensemble des personnes sous contrôle pénal.',hbars([{k:'Probation',v:3103400,c:C.steel},{k:'Incarcération',v:1980000,c:C.amber},{k:'Libération conditionnelle',v:680400,c:C.violet}],{lw:150})+`<ul class="facts" style="margin-top:14px"><li><b>4,9 millions</b> d’Américains sont d’anciens détenus de prison.</li><li><b>19 millions</b> vivent avec une condamnation pour crime (felony).</li><li><b>79 millions</b> ont un casier judiciaire.</li><li><b>113 millions</b> d’adultes (45 %) ont eu un proche incarcéré au moins une nuit.</li></ul>`,'BJS, Correctional Populations in the United States 2023 ; Prison Policy Initiative ; FWD.us.','span2')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Ce qui a changé en un an','Évolutions relevées par le Whole Pie 2026 par rapport à l’édition 2025.',`<ul class="facts"><li><span class="pill up">+58 %</span> &nbsp;La détention ICE a bondi de <b>25 200 personnes</b> entre 2025 et 2026 : presque toute la croissance de l’incarcération vient de l’immigration.</li><li><span class="pill down">-3 %</span> &nbsp;Les jails locales ont détenu <b>17 000 personnes de moins</b> pour le compte des shérifs, mais 9 500 de plus pour les agences fédérales.</li><li><span class="pill down">-10 000</span> &nbsp;Détenus fédéraux en moins, effet des grâces et des nouvelles priorités.</li><li><span class="pill up">+6 %</span> &nbsp;Deuxième année de hausse des mineurs placés, après vingt ans de baisse.</li></ul>`,'Prison Policy Initiative, 2026.')}
+ ${card('Depuis la pandémie','La chute de 2020 s’efface peu à peu.',`<ul class="facts"><li>Les prisons d’État détiennent <b>15 % de moins</b> qu’en 2019, mais ont repris <b>56 000 personnes</b> depuis 2022.</li><li>Les jails sont <b>12 % en dessous</b> de 2019.</li><li>La détention ICE est <b>78 % au-dessus</b> de début 2020 et a rebondi de 282 % depuis 2022.</li><li>Le total confiné reste <b>12 % inférieur</b> à son niveau d’avant 2020.</li></ul>`,'Prison Policy Initiative, 2026.')}
+ ${card('Le mythe le plus tenace','Les prisons privées ne sont pas le cœur du système.',`<p class="txt">Moins de <b>9 %</b> des détenus sont dans des établissements privés. Le système carcéral américain est d’abord <b>public</b> : 50 États, 3 000 comtés, des milliers de municipalités. Les entreprises privées gagnent surtout de l’argent sur les <b>services</b> vendus aux détenus et à leurs familles : téléphone, cantine, santé, repas.</p><p class="txt">Quatre détenus sur cinq sont enfermés pour autre chose qu’une infraction liée aux stupéfiants ; libérer les « non-violents » ne suffirait pas à mettre fin à l’incarcération de masse.</p>`,'Prison Policy Initiative, 2026.')}
+</div></section>`;
+
+S.lieux=()=>head('lieux','03 · OÙ','Prisons, jails, fédéral : trois mondes','Une « prison » (State ou Federal) accueille des personnes condamnées, généralement à plus d’un an. Une « jail » est locale : la majorité des personnes y attendent leur procès, souvent faute de pouvoir payer une caution.',[`Une <b>prison</b> détient des condamnés ; une <b>jail</b> détient d’abord des personnes en attente de procès.`,`Le « fédéral » est trois agences : <b>BOP</b>, <b>Marshals</b> et <b>ICE</b>, qui louent des lits aux comtés.`,`Neuf États, Texas en tête, concentrent <b>77 %</b> de la reprise des prisons d’État.`])+`
+<div class="grid g3">
+ ${card('Les établissements','Compte des lieux de détention recensés.',hbars([{k:'Jails locales',v:3116,c:C.steel},{k:'Prisons d’État',v:1566,c:C.amber},{k:'Établissements pour mineurs',v:1277,c:C.teal},{k:'Centres de détention migratoire',v:220,c:C.violet},{k:'Prisons fédérales',v:98,c:C.red},{k:'Jails tribales',v:77,c:C.grey}],{lw:230,W:760}),'Prison Policy Initiative, 2026.','span2')}
+ ${card('Jails : des innocents aux yeux de la loi','Statut des 546 000 personnes détenues pour les autorités locales.',donut([{k:'Non condamnées (en attente de jugement)',v:426000,c:C.steel},{k:'Condamnées (peines courtes)',v:120000,c:C.amber}],{center:'78 %',centerLabel:'non jugées'}),'BJS, Jails Report Series 2024 ; PPI 2026.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Le système fédéral, pièce par pièce','Le « fédéral » n’est pas une seule administration.',`<ul class="facts"><li><b>Bureau of Prisons (BOP)</b> : 153 238 personnes au 27 janvier 2026, dans 98 prisons fédérales, plus des maisons de transition et l’assignation à domicile (9,3 %).</li><li><b>U.S. Marshals Service</b> : 56 136 personnes en moyenne (exercice 2024), en attente de procès ou de transfert, sans aucun établissement propre : 28 579 en prisons d’État et jails, 7 239 en centres privés contractés directement, 12 100 en centres privés sous contrat indirect, 8 006 dans des centres de détention du BOP.</li><li><b>ICE</b> : 68 990 personnes le 7 janvier 2026, record historique à 70 766 le 24 janvier puis environ 73 000 selon des données internes citées par CBS News ; 8 % en centres fédéraux, 61 % en centres privés, 22 % en jails locales, 3 % en établissements d’État, 5 % ailleurs.</li><li>Les jails louent de l’espace : <b>30 899</b> détenus des Marshals et <b>15 273</b> détenus de l’ICE dormaient dans des jails de comté.</li></ul>`,'BOP Population Statistics ; USMS (réponse FOIA 2025) ; ICE Detention Management ; PPI 2026 ; CBS News.')}
+ ${card('Détention avant jugement','465 000 personnes détenues sans condamnation.',hbars([{k:'Jails locales',v:426000,c:C.steel},{k:'Système fédéral (Marshals)',v:24000,c:C.red},{k:'Mineurs',v:13000,c:C.teal},{k:'Jails tribales',v:1300,c:C.grey}],{lw:200})+`<div class="note" style="margin-top:12px"><b>Caution médiane pour un crime : 10 000 $.</b> C’est l’équivalent de huit mois de revenus pour la personne type qui reste en jail faute de pouvoir la payer. Au moins une personne sur quatre qui passe en jail y retourne dans l’année.</div>`,'Prison Policy Initiative, 2026 ; BJS.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('La détention migratoire, courbe d’une explosion','Personnes détenues par l’ICE un jour donné, 2019 à 2026 (valeurs approximatives aux dates indiquées).',lineChart([[2019.6,55000],[2020.2,38000],[2020.6,22000],[2021.1,14000],[2021.6,27000],[2022.1,20000],[2022.6,24000],[2023.1,25000],[2023.6,30000],[2024.1,37000],[2024.6,37000],[2025.0,39000],[2025.5,56000],[2025.75,60000],[2026.05,69000],[2026.07,70766],[2026.3,60300]],{xticks:[2019,2020,2021,2022,2023,2024,2025,2026],fmtY:v=>fmt(v),fmtTip:p=>fmt(p[1])+' personnes',marks:[[2020.2,'Covid'],[2025.05,'2e mandat Trump'],[2026.07,'Record 70 766']],ymax:80000})+`<p class="txt" style="margin-top:8px">De 14 000 personnes début 2021 à plus de 70 000 en janvier 2026 : la détention migratoire a été multipliée par cinq. La loi budgétaire de 2025 prévoit <b>45 Md$</b> et 100 000 lits ; les trois quarts des personnes détenues n’ont aucune condamnation.</p>`,'ICE Detention Management ; TRAC Immigration ; Vera Institute, ICE Detention Trends ; CBS News.')}
+ ${card('Qui détient pour le compte de l’ICE','Lieux de détention des 69 000 personnes, janvier 2026.',donut([{k:'Centres privés sous contrat',v:61,c:C.red},{k:'Jails de comté louées',v:22,c:C.amber},{k:'Centres fédéraux (ICE, BOP)',v:8,c:C.navy},{k:'Établissements d’État',v:3,c:C.amber2},{k:'Autres (hôpitaux, hôtels, transit)',v:5,c:C.grey}],{center:'61 %',centerLabel:'privé',fmtTip:(i,t)=>pct(i.v),fmtL:i=>pct(i.v)})+`<p class="txt" style="margin-top:8px">Deux centres dépassent 2 000 personnes par jour : Adams County (Mississippi, CoreCivic) et Stewart (Géorgie, CoreCivic). Les nouveaux sites ouverts en 2025, comme « Alligator Alcatraz » en Floride ou Camp East Montana au Texas, concentrent les signalements de mauvais traitements.</p>`,'PPI 2026, d’après ICE ; Vera Institute.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Les États qui remplissent','Hausse 2021 à 2023 de la population carcérale d’État.',hbars([{k:'Texas',v:15492,c:C.red},{k:'Floride',v:6790,c:C.red},{k:'Géorgie',v:3415,c:C.red},{k:'Tennessee',v:2413,c:C.amber},{k:'Wisconsin',v:2216,c:C.amber},{k:'Mississippi',v:2194,c:C.amber},{k:'Alabama',v:2149,c:C.amber}],{lw:100,W:400,fmtV:i=>'+'+fmt(i.v)}),'PPI 2025, d’après BJS. Neuf États concentrent 77 % de la croissance 2022-2023, le Texas seul 31 %.')}
+ ${card('Les États qui vident','Baisse 2021 à 2023.',hbars([{k:'Californie',v:5479,c:C.green},{k:'Virginie',v:2915,c:C.green},{k:'Oregon',v:882,c:C.green},{k:'New Jersey',v:831,c:C.green},{k:'Alaska',v:161,c:C.green},{k:'Hawaï',v:160,c:C.green},{k:'Massachusetts',v:146,c:C.green}],{lw:100,W:400,fmtV:i=>'-'+fmt(i.v)}),'PPI 2025. Le New Jersey détient 37 % de personnes en moins qu’en 2019.')}
+ ${card('Taux d’incarcération par État','Détenus condamnés pour 100 000 habitants, fin 2022.',hbars([{k:'Mississippi',v:661,c:C.red},{k:'Louisiane',v:596,c:C.red},{k:'Arkansas',v:574,c:C.red},{k:'Oklahoma',v:563,c:C.red},{k:'Moyenne nationale',v:355,c:C.amber},{k:'Massachusetts',v:120,c:C.green}],{lw:130,W:400}),'BJS, Prisoners in 2022. Le taux national est remonté à 360 en 2023.')}
+</div></section>`;
+
+S.infractions=()=>head('infractions','10 · POURQUOI','Pour quelles infractions ?','Une seule infraction, la plus grave, est retenue par personne. Près de la moitié (47 %) des personnes en prison ou en jail sont détenues pour une infraction qualifiée de « violente », une catégorie juridique bien plus large que la violence physique.',[`<b>62 %</b> des détenus d’État le sont pour une infraction classée violente ; « violent » est une catégorie juridique, pas une description.`,`La guerre aux drogues est d’abord <b>fédérale</b> : 45 % des condamnés du BOP.`,`<b>125 000</b> personnes sont enfermées pour une simple violation technique de probation ou de parole.`])+`
+<div class="grid g2">
+ ${card('Prisons d’État : 1 098 000 détenus par catégorie','Les prisons d’État sont le cœur du système : la violence y domine.',hbars(STATE_OFF,{W:1100,lw:170,fmtTip:i=>fmt(i.v)+' · '+pct(i.v/1098000*100)})+`<div id="offDetail" style="margin-top:10px"></div>`,'PPI 2026, d’après BJS Prisoners in 2023 (table 16).','span2')}
+ ${card('Le détail des infractions violentes','684 000 personnes.',hbars(STATE_OFF[0].sub.map(s=>({k:s[0],v:s[1],c:C.red})),{lw:200}),'PPI 2026.')}
+ ${card('Biens, stupéfiants, ordre public','414 000 personnes.',hbars([...STATE_OFF[1].sub.map(s=>({k:s[0],v:s[1],c:C.steel})),...STATE_OFF[2].sub.map(s=>({k:s[0],v:s[1],c:C.green})),...STATE_OFF[3].sub.map(s=>({k:s[0],v:s[1],c:C.violet}))],{lw:200,rh:26}),'PPI 2026.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Système fédéral : la guerre aux drogues','Bureau of Prisons, 145 000 condamnés.',donut(FED_OFF,{center:'45 %',centerLabel:'stupéfiants'})+`<p class="txt" style="margin-top:10px">Chez les Marshals (56 000 en attente), on compte encore 20 000 dossiers de stupéfiants et 11 000 d’immigration. Plus de 6 500 personnes purgent une peine fédérale pour une infraction d’immigration, le plus souvent une simple entrée ou réentrée illégale.</p>`,'PPI 2026, d’après BJS table 19 et USMS.')}
+ ${card('Jails : personnes non condamnées','426 000 personnes en attente.',donut(JAIL_NC,{center:'426 k'}),'PPI 2026, d’après l’enquête BJS sur les détenus des jails.')}
+ ${card('Jails : personnes condamnées','120 000 personnes purgeant moins d’un an.',donut(JAIL_C,{center:'120 k'}),'PPI 2026.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${kpi('362 000','personnes enfermées pour stupéfiants','139 000 en prisons d’État, 136 000 en jails, 86 000 au fédéral')}
+ ${kpi('≈ 1 M','arrestations liées aux drogues chaque année','Surtout pour simple possession (FBI)')}
+ ${kpi('125 000','détenus pour « violations techniques »','Couvre-feu, rendez-vous manqué, dette de supervision : 27 % des admissions en prison')}
+</div>
+<div class="note" style="margin-top:16px"><b>Ce que « violent » veut dire.</b> Dans plusieurs États, un vol à l’arraché, la fabrication de méthamphétamine ou un cambriolage de nuit dans une maison vide sont des crimes « violents ». La catégorie « meurtre » inclut aussi la règle du <i>felony murder</i> : le guetteur d’un cambriolage où quelqu’un meurt accidentellement peut être condamné pour meurtre. Les personnes condamnées pour violences ont pourtant les taux de récidive les plus faibles de toutes les catégories.</div>
+</section>`;
+
+S.profil=()=>head('profil','06 · QUI','Couleur de peau, sexe, âge, pauvreté','Les écarts raciaux sont la caractéristique la plus frappante du système américain. Les Noirs représentent 14 % de la population, mais 33 % des condamnés en prison et 42 % de l’ensemble des personnes incarcérées, jails comprises.',[`Un adulte noir est emprisonné <b>5 fois</b> plus qu’un adulte blanc ; un Amérindien 4,5 fois plus.`,`Le détenu type est un homme pauvre, arrêté jeune, sorti tôt de l’école.`,`La prison <b>vieillit</b> : 16 % des détenus ont 55 ans ou plus, contre 4 % en 2002.`])+`
+<div class="grid g2">
+ ${card('Part dans les prisons et part dans la population','Détenus condamnés fin 2023 contre population américaine.',pairBars(RACE_SHARE,{la:'Part des détenus (%)',lb:'Part de la population (%)',ca:C.amber,cb:C.steel,fmtV:v=>v.toLocaleString('fr-FR')+' %',fmtTip:v=>v.toLocaleString('fr-FR')+' %'}),'BJS, Prisoners in 2023 ; U.S. Census Bureau (ACS). Environ 10 % des détenus relèvent de « deux races ou plus » ou « autre ».')}
+ ${card('Taux d’emprisonnement pour 100 000 adultes','Condamnés à plus d’un an, fin 2023.',hbars(RACE_RATE,{lw:210,unit:' / 100 k'})+`<div class="note" style="margin-top:12px">Un adulte noir est emprisonné à un taux <b>5 fois</b> supérieur à un adulte blanc, <b>2 fois</b> supérieur à un adulte hispanique et <b>14 fois</b> supérieur à un adulte asiatique. En dix ans, le taux a baissé de 33 % pour les Noirs, 35 % pour les Hispaniques et 22 % pour les Blancs.</div>`,'BJS, Prisoners in 2023, table 6.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Dix ans de baisse, des écarts qui restent','Taux d’emprisonnement pour 100 000 adultes, 2013 et 2023. Les valeurs 2013 sont reconstituées à partir des baisses publiées par BJS.',slope([['Noirs',1818,1218,C.red],['Amérindiens',1161,1045,C.amber2],['Hispaniques',932,606,'#6b4fd6'],['Blancs',296,231,C.amber],['Asiatiques',126,88,'#1f7a7f']],{la:'2013',lb:'2023'})+`<p class="txt" style="margin-top:8px">Les taux ont reculé pour tous les groupes, davantage pour les Noirs (-33 %) et les Hispaniques (-35 %) que pour les Blancs (-22 %). L’écart entre Noirs et Blancs est passé de 6,1 à 5,3 ; à ce rythme, il faudrait plusieurs décennies pour le combler.</p>`,'BJS, Prisoners in 2023 (évolutions décennales par groupe, table 6).')}
+ ${card('Les femmes noires et hispaniques, les plus pauvres de tous','Revenu annuel médian avant l’incarcération, dollars de 2014, personnes de 27 à 42 ans.',hbars([{k:'Hommes blancs',v:21975,c:C.amber},{k:'Hommes hispaniques',v:19740,c:C.amber},{k:'Hommes noirs',v:17625,c:C.amber},{k:'Femmes blanches',v:15480,c:C.pink},{k:'Femmes hispaniques',v:11820,c:C.pink},{k:'Femmes noires',v:12735,c:C.pink}],{lw:160,fmtV:i=>fmt(i.v)+' $'})+`<p class="txt" style="margin-top:8px">Avant leur incarcération, les détenus gagnaient tous nettement moins que les personnes libres du même âge et du même groupe : <b>-41 %</b> pour les hommes, <b>-54 %</b> pour les femmes.</p>`,'Prison Policy Initiative, « Prisons of Poverty: Uncovering the pre-incarceration incomes of the imprisoned » (BJS, 2004 et 2014).')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Hommes et femmes','Taux pour 100 000 adultes, fin 2023.',hbars(SEX,{lw:90,W:400,unit:' / 100 k'})+`<p class="txt" style="margin-top:10px">Les hommes sont <b>93 %</b> des condamnés (1 124 400 contre 85 900 femmes à plus d’un an). Les hommes noirs restent le groupe le plus emprisonné du pays : <b>1 826</b> pour 100 000 en 2022, contre 337 pour les hommes blancs et 794 pour les hommes hispaniques.</p>`,'BJS, Prisoners in 2023 et 2022.')}
+ ${card('Un système qui vieillit','Prisons d’État et fédérales, 2002 contre 2023.',pairBars([['24 ans et moins',17,6],['55 ans et plus',4,16]],{W:400,lw:120,la:'2002 (%)',lb:'2023 (%)',ca:C.grey,cb:C.amber,fmtV:v=>v+' %',max:20})+`<p class="txt" style="margin-top:8px">Les prisons détiennent <b>193 000 personnes de 55 ans et plus</b> et moins de 80 000 de 24 ans et moins. Le risque de violence culmine à l’adolescence puis décline avec l’âge ; on garde des gens longtemps après que ce risque a disparu.</p>`,'PPI 2026, d’après BJS.')}
+ ${card('La pauvreté avant la prison','Ce que les détenus d’État vivaient dans leur enfance.',hbars([{k:'Famille aidée par l’État',v:42,c:C.amber},{k:'Premier arrêt avant 16 ans',v:38,c:C.red},{k:'Parent incarcéré',v:33,c:C.violet},{k:'Placement en famille d’accueil',v:18,c:C.steel},{k:'Sans domicile',v:12,c:C.teal}],{lw:170,W:400,rh:26,unit:' %'}),'BJS, Survey of Prison Inmates 2016 ; PPI « Beyond the Count ».')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('La pyramide des âges des condamnés','Part des détenus condamnés par tranche d’âge, fin 2023.',vbars([{k:'18-19',v:0.4},{k:'20-24',v:6.1},{k:'25-29',v:11.9},{k:'30-34',v:16.4,c:C.navy},{k:'35-39',v:15.7},{k:'40-44',v:14.6},{k:'45-49',v:10.5},{k:'50-54',v:8.5},{k:'55-59',v:6.6},{k:'60-64',v:4.7},{k:'65 et +',v:4.6}],{fmtV:i=>i.v.toLocaleString('fr-FR')+' %',fmtTip:i=>pct(i.v,1)})+`<p class="txt" style="margin-top:8px">L’âge médian d’un détenu américain approche <b>40 ans</b>. Les 30 à 44 ans forment près de la moitié de la population ; les 55 ans et plus, <b>192 900</b> personnes, sont désormais plus nombreux que les moins de 25 ans.</p>`,'BJS, Prisoners in 2023, table 10.')}
+ ${card('Les revenus avant l’incarcération','Revenu annuel médian avant la détention, personnes de 27 à 42 ans, dollars de 2014.',pairBars([['Hommes',19650,41250],['Femmes',13890,23745]],{la:'Détenus avant incarcération',lb:'Personnes non détenues du même âge',fmtV:v=>fmt(v)+' $',fmtTip:v=>fmt(v)+' $'})+`<p class="txt" style="margin-top:8px">Les détenus gagnaient en moyenne <b>41 % de moins</b> que les personnes du même âge restées libres. Les femmes noires et hispaniques incarcérées sont les plus pauvres de tous les groupes.</p>`,'Prison Policy Initiative, « Prisons of Poverty », d’après BJS.')}
+ ${card('Ni citoyens, ni dangereux : les chiffres de l’immigration','Ce que disent les données sur la population étrangère.',`<ul class="facts"><li>Seuls <b>3 %</b> des personnes en jail ne sont pas citoyens américains ; la plupart n’ont été condamnées de rien.</li><li>Plusieurs études (Brennan Center, NBER, PNAS) concluent que les immigrés, avec ou sans papiers, ne commettent pas plus de crimes que les natifs.</li><li>Parmi les personnes détenues par l’ICE en janvier 2026, <b>74 %</b> n’avaient aucune condamnation pénale ; les personnes figurant sur la liste gouvernementale des « pires criminels » représentaient <b>4 %</b> des arrestations ICE de 2025 (Cato Institute).</li><li>Plus de <b>40 000</b> personnes portent un bracelet GPS de l’ICE, record historique ; 180 000 sont sous surveillance électronique au total.</li></ul>`,'BJS ; PPI 2026 ; TRAC Immigration ; Cato Institute.','span2')}
+</div></section>`;
+
+S.education=()=>head('education','07 · ÉTUDES','Le niveau de diplôme des détenus','La prison est d’abord peuplée de personnes sorties tôt de l’école. Les enquêtes du Bureau of Justice Statistics montrent un décrochage deux fois plus fréquent qu’en population générale, et une alphabétisation nettement plus faible.',[`<b>41 %</b> des détenus d’État n’ont ni diplôme de lycée ni GED, contre 18 % des Américains.`,`Plus de la moitié ont un niveau de calcul du plus bas échelon (PIAAC).`,`L’éducation en prison réduit de <b>43 %</b> le retour derrière les barreaux.`])+`
+<div class="grid g2">
+ ${card('Plus haut niveau atteint : détenus d’État contre population générale','Enquête nationale sur les détenus des prisons d’État (1997, publiée 2003), adultes de 18 ans et plus.',pairBars(EDU,{W:1100,lw:300,la:'Détenus des prisons d’État (%)',lb:'Population générale (%)',ca:C.amber,cb:C.steel,fmtV:v=>v.toLocaleString('fr-FR')+' %',fmtTip:v=>v.toLocaleString('fr-FR')+' %'}),'BJS, Education and Correctional Populations (NCJ 195670), Caroline Wolf Harlow.','span2')}
+ ${kpi('41 %','des détenus d’État n’ont ni diplôme de lycée ni GED','Contre 18 % de la population générale ; 68 % n’ont pas le diplôme de lycée lui-même')}
+ ${kpi('26 %','ont obtenu le GED en détention','Le GED est accepté comme équivalent du diplôme de lycée par les employeurs et universités')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Lire, compter : l’enquête PIAAC en prison','Adultes incarcérés contre adultes libres, 2014.',pairBars([['Littératie au niveau 1 ou moins',29,19],['Numératie au niveau 1 ou moins',52,29]],{W:400,lw:170,la:'Détenus (%)',lb:'Population libre (%)',ca:C.red,cb:C.steel,fmtV:v=>v+' %',max:60})+`<p class="txt" style="margin-top:8px">Plus de la moitié des détenus ont des compétences en calcul du niveau le plus bas, contre moins d’un tiers des adultes libres. Les détenus sont pourtant plus nombreux à déclarer vouloir suivre une formation.</p>`,'National Center for Education Statistics, PIAAC Prison Study 2014.')}
+ ${card('Ce que l’école change en prison','Les études sur l’éducation en détention convergent.',`<ul class="facts"><li>Suivre un programme éducatif réduit de <b>43 %</b> la probabilité de retour en prison (meta-analyse RAND, 2013).</li><li>Chaque dollar investi dans l’éducation en prison économise <b>4 à 5 $</b> de coûts de ré-incarcération dans les trois ans.</li><li>Les détenus formés ont <b>13 %</b> de chances supplémentaires de trouver un emploi à la sortie.</li><li>Depuis juillet 2023, les bourses fédérales <b>Pell Grant</b> sont de nouveau ouvertes aux détenus, après vingt-neuf ans d’interdiction (loi de 1994) : environ 760 000 personnes y deviennent éligibles.</li></ul>`,'RAND Corporation, « Evaluating the Effectiveness of Correctional Education » ; U.S. Department of Education.')}
+ ${card('Participation aux programmes','Part des détenus d’État ayant suivi un programme éducatif depuis leur admission.',hbars([{k:'Avec un GED',v:60,c:C.green},{k:'Sans diplôme de lycée',v:54,c:C.amber},{k:'24 ans ou moins',v:58,c:C.steel},{k:'Avec études supérieures',v:43,c:C.violet},{k:'45 ans ou plus',v:47,c:C.grey}],{lw:150,W:400,unit:' %'})+`<p class="txt" style="margin-top:8px">La participation a reculé de 57 % (1991) à 52 % (1997) en prisons d’État et de 67 % à 57 % au fédéral, même si le nombre absolu de participants a grimpé avec la population carcérale.</p>`,'BJS, Education and Correctional Populations.')}
+</div>
+<div class="note" style="margin-top:16px"><b>Pourquoi ces enquêtes sont anciennes.</b> La seule enquête nationale détaillée sur le niveau d’études des détenus reste celle de 1997 publiée en 2003 ; l’enquête de 2016 (Survey of Prison Inmates) la confirme dans ses grandes lignes : environ quatre détenus d’État sur dix n’ont ni diplôme de lycée ni GED. Le PIAAC de 2014 est la mesure la plus récente des compétences réelles.</div>
+</section>`;
+
+S.religion=()=>head('religion','08 · RELIGIONS','Les religions derrière les barreaux','Aucune administration ne publie de recensement national des croyances. Deux sources sérieuses existent : l’estimation des aumôniers des prisons d’État (Pew Research Center, 50 États) et le fichier religieux du Bureau of Prisons fédéral. Elles racontent la même histoire : une population plus chrétienne et beaucoup plus musulmane que le pays.',[`Environ <b>deux tiers</b> des détenus se disent chrétiens, comme le pays.`,`Les <b>musulmans</b> sont 9 % des détenus pour 1 % des Américains.`,`Conversions et prosélytisme sont « courants » pour trois aumôniers sur quatre.`])+`
+<div class="grid g2">
+ ${card('Prisons d’État : l’estimation des aumôniers','Part des détenus par religion, moyenne des réponses de 730 aumôniers.',donut(REL_STATE,{center:'≈ 66 %',centerLabel:'chrétiens',fmtTip:(i,t)=>pct(i.v),fmtL:i=>pct(i.v)}),'Pew Research Center, « Religion in Prisons: A 50-State Survey of Prison Chaplains », 2012. Les aumôniers estiment ; les chiffres sont des ordres de grandeur.')}
+ ${card('Prisons fédérales : le fichier du Bureau of Prisons','Religion déclarée par 125 536 détenus fédéraux (recensement BOP).',donut(REL_BOP,{center:'8,8 %',centerLabel:'musulmans',fmtTip:(i,t)=>pct(i.v,1),fmtL:i=>pct(i.v,1)}),'Federal Bureau of Prisons, recensement religieux (2000), repris par la Freedom From Religion Foundation et FiveThirtyEight.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Détenus contre Américains','Part de musulmans : prison fédérale contre population.',pairBars([['Musulmans',8.8,1.0],['Catholiques',30.6,20],['Protestants',32.4,40],['Sans religion',12.6,29]],{W:400,lw:110,la:'Détenus fédéraux (%)',lb:'Américains (%)',ca:C.green,cb:C.steel,fmtV:v=>v+' %',max:45})+`<p class="txt" style="margin-top:8px">Les musulmans sont <b>près de neuf fois</b> plus représentés en prison fédérale que dans le pays. Les sans-religion, au contraire, y sont deux fois moins nombreux. Les athées déclarés étaient 114 sur 125 536, soit moins de 0,1 %.</p>`,'BOP ; Pew Research Center (Religious Landscape Study 2023-24 : 62 % de chrétiens, 29 % de sans-religion, 1 % de musulmans).')}
+ ${card('Une vie religieuse intense','Ce que rapportent les aumôniers.',hbars([{k:'Prosélytisme courant',v:74,c:C.amber},{k:'Changements de religion courants',v:77,c:C.steel},{k:'Extrémisme « courant »',v:41,c:C.red},{k:'Programmes religieux « indispensables »',v:73,c:C.green},{k:'Islam en progression',v:51,c:C.teal}],{lw:200,W:400,unit:' %'})+`<p class="txt" style="margin-top:8px">Seuls <b>4 %</b> des aumôniers jugent que l’extrémisme menace « presque toujours » la sécurité. Les aumôniers musulmans sont bien moins nombreux à constater de l’extrémisme (23 %) que les protestants (43 %).</p>`,'Pew Research Center, 2012.')}
+ ${card('Les droits religieux en détention','Ce que la loi garantit.',`<ul class="facts"><li>La loi fédérale <b>RLUIPA (2000)</b> interdit aux prisons toute entrave « substantielle » à la pratique religieuse sans intérêt impérieux.</li><li>La Cour suprême a fait évoluer la jurisprudence : <b>Holt v. Hobbs (2015)</b>, barbe d’un détenu musulman ; <b>Ramirez v. Collier (2022)</b>, présence d’un pasteur dans la chambre d’exécution.</li><li>Les aumôniers sont à 85 % chrétiens (44 % évangéliques), 7 % musulmans ; ils manquent de bénévoles musulmans, païens et amérindiens.</li><li>Les repas casher, halal et végétariens sont les demandes les plus fréquentes ; le port de la barbe est l’une des moins accordées.</li></ul>`,'Pew Research Center ; Cour suprême des États-Unis.')}
+</div></section>`;
+
+S.argent=()=>head('argent','13 · ARGENT','Ce que ça coûte, et à qui','Le système coûte au moins 445 milliards de dollars par an à l’ensemble des administrations. Mais une partie de la facture est reportée sur les détenus eux-mêmes et sur leurs familles : téléphone, cantine, frais médicaux, cautions.',[`Au moins <b>445 Md$</b> par an, soit 1,2 Md$ par jour.`,`Un détenu coûte de <b>14 780 $</b> (Alabama) à <b>69 355 $</b> (New York) par an.`,`Les familles paient <b>2,9 Md$</b> de téléphone et de cantine ; les détenus travaillent pour quelques cents.`])+`
+<div class="grid g4">
+ ${kpi('445','coût annuel du système pénal','Police, tribunaux, corrections, immigration ; estimation 2025','Md$')}
+ ${kpi('+27 %','hausse des dépenses de corrections','+24,8 Md$ entre 2017 et 2025, alors que la population suivie a reculé de 15 %')}
+ ${kpi('54,3','police et détention migratoires','Milliards de dollars en 2025, contre 20 Md$ en 2017 : 13 % du total','Md$')}
+ ${kpi('47 162','coût annuel d’un détenu fédéral','Soit 129 $ par jour (exercice 2024)','$')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Combien coûte un détenu par État','Coût annuel complet par personne incarcérée, enquête Vera sur 45 États.',hbars([{k:'New York',v:69355,c:C.red},{k:'Californie',v:64642,c:C.red},{k:'Moyenne des 45 États',v:33274,c:C.amber},{k:'Texas',v:22012,c:C.steel},{k:'Alabama',v:14780,c:C.green}],{lw:170,fmtV:i=>fmt(i.v)+' $',fmtTip:i=>fmt(i.v)+' $ par an'})+`<p class="txt" style="margin-top:8px">Les écarts tiennent d’abord au nombre de surveillants par détenu et à leurs salaires : la masse salariale représente <b>68 %</b> des dépenses. Rapporté à l’habitant, les États dépensent en moyenne <b>137 $</b> par résident et par an pour leurs prisons (de 51 $ dans l’Utah à 429 $ en Alaska). Au fédéral, le coût est passé à 47 162 $ par détenu en 2024.</p>`,'Vera Institute of Justice, « The Price of Prisons » (2015) ; Federal Register (BOP, 2024).')}
+ ${card('Qui paie quoi','Dépenses publiques et privées liées à l’incarcération, en milliards de dollars.',hbars([{k:'Corrections publiques',v:80.7,c:C.amber},{k:'Police',v:63.2,c:C.steel},{k:'Tribunaux',v:29,c:C.violet},{k:'Santé des détenus',v:12.3,c:C.teal},{k:'Prisons privées (opérateurs)',v:3.9,c:C.red},{k:'Cantine (familles)',v:1.6,c:C.pink},{k:'Cautions (familles)',v:1.4,c:C.pink},{k:'Téléphone (familles)',v:1.3,c:C.pink}],{lw:190,fmtV:i=>i.v.toLocaleString('fr-FR')+' Md$',fmtTip:i=>i.v.toLocaleString('fr-FR')+' milliards de dollars'})+`<p class="txt" style="margin-top:8px">Les familles paient <b>2,9 Md$</b> par an de cantine et de téléphone, et 1,4 Md$ de cautions non remboursables. En 2026, l’estimation globale est passée de 182 à 445 Md$ grâce à un recensement plus complet des coûts, dont l’immigration.</p>`,'Prison Policy Initiative, « Following the Money of Mass Incarceration » (2017) et « Mass Incarceration: The Whole Pie 2026 ».')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Le travail en prison','Des salaires de quelques cents de l’heure.',`<ul class="facts"><li>Les emplois les plus courants paient entre <b>0,86 $ et 3,45 $ par jour</b> ; dans au moins cinq États (Alabama, Arkansas, Géorgie, Mississippi, Texas), ils ne paient <b>rien</b>.</li><li>Seules <b>4 200 personnes</b> (moins de 1 %) travaillent pour des entreprises privées via le programme fédéral PIECP, au salaire minimum avant retenues.</li><li>Environ <b>6 %</b> des détenus d’État travaillent pour les « industries correctionnelles » publiques.</li><li>Selon l’ACLU (2022), près de <b>65 %</b> des détenus travaillent, produisant <b>2 Md$</b> de biens et <b>9 Md$</b> de services par an, sans droit de refuser ni protections.</li><li>Le travail est obligatoire ; refuser expose à des sanctions disciplinaires.</li></ul>`,'Prison Policy Initiative (2017) ; ACLU et Global Human Rights Clinic, « Captive Labor » (2022).')}
+ ${card('Le 13e amendement','La clause qui autorise encore le travail forcé.',`<p class="txt">Ratifié en 1865, le 13e amendement abolit l’esclavage « <b>sauf comme punition d’un crime</b> ». Cette exception fonde juridiquement le travail obligatoire en détention. Depuis 2018, plusieurs États l’ont retirée de leur constitution (Colorado, Utah, Nebraska, Alabama, Oregon, Tennessee, Vermont, Nevada) ; en Californie, les électeurs ont refusé en 2024.</p><div class="note">En 2024, les électeurs de Californie ont rejeté la Proposition 6, qui aurait interdit le travail forcé en prison ; l’Oregon et le Vermont l’avaient adoptée en 2022.</div>`,'Constitution des États-Unis ; résultats électoraux des États.')}
+ ${card('Les frais cachés','Ce que la prison fait payer à ceux qu’elle enferme.',`<ul class="facts"><li>Des <b>frais de visite médicale</b> (copays) de 2 à 8 $ dans la plupart des États, pour des salaires de quelques dollars par jour.</li><li>Une soupe de nouilles achetée 26 cents est revendue <b>45 cents</b> en cantine ; les commissions reversées aux prisons sur le téléphone ont atteint <b>87 %</b> du chiffre d’affaires dans l’Illinois.</li><li>Des « frais de séjour » (pay-to-stay) facturés après la sortie dans certains comtés.</li><li>La loi fédérale de 2022 (Martha Wright-Reed Act) plafonne depuis 2024 les tarifs téléphoniques : la FCC a fixé un plafond de 6 cents la minute pour les grandes prisons.</li></ul>`,'Prison Policy Initiative ; FCC ; Worth Rises.')}
+</div></section>`;
+
+const COS=[
+ {n:'CoreCivic',t:'op',ini:'CC',col:'#b43c2e',meta:'Nashville (Tennessee) · NYSE : CXW · fondée en 1983 sous le nom Corrections Corporation of America',p:'Premier opérateur privé historique. Trois branches : Safety (prisons et centres de détention), Community (maisons de transition), Properties (immobilier carcéral loué aux administrations). Ne gère plus aucune prison pour le BOP ; ses clients fédéraux (ICE, Marshals, BOP) ont pesé 51 % du chiffre d’affaires 2024, dont 21 % pour les seuls Marshals (406 M$).',num:[['≈ 2 Md$','chiffre d’affaires 2024'],['43','établissements'],['≈ 65 000','lits'],['+28 %','population ICE au 1er semestre 2025']]},
+ {n:'GEO Group',t:'op',ini:'GEO',col:'#2e5fb4',meta:'Boca Raton (Floride) · NYSE : GEO · fondée en 1984',p:'Premier contractant de l’ICE : 20 000 lits occupés par l’immigration en 2025, record de son histoire. Sa filiale BI Inc. est le fournisseur unique de la surveillance électronique de l’ICE (bracelets GPS, application SmartLINK). Détient aussi des contrats en Australie, en Afrique du Sud et au Royaume-Uni. Dette totale : environ 1,65 Md$.',num:[['2,63 Md$','chiffre d’affaires 2025'],['120 M$','bénéfice net 2025'],['≈ 3 Md$','prévision 2026'],['+86 %','cours de bourse après l’élection de 2024']]},
+ {n:'Management & Training Corp. (MTC)',t:'op',ini:'MTC',col:'#7a5cc9',meta:'Centerville (Utah) · société privée non cotée',p:'Troisième opérateur américain, également présent dans les centres de formation Job Corps et la détention migratoire. Gère une vingtaine d’établissements, surtout au Texas, en Floride et en Arizona.',num:[['≈ 20','établissements'],['≈ 25 000','lits']]},
+ {n:'Securus Technologies (Aventiv)',t:'tel',ini:'S',col:'#1f8f66',meta:'Dallas (Texas) · détenue par le fonds Platinum Equity depuis 2017 · propriétaire de JPay',p:'Numéro un du téléphone, de la visioconférence, des tablettes et des transferts d’argent en détention : 1,2 million de personnes dans 3 400 établissements. Profits records pendant la pandémie lorsque les visites étaient suspendues. Valorisation estimée à 1,5 Md$.',num:[['1,2 M','détenus desservis'],['3 400','établissements']]},
+ {n:'ViaPath (ex GTL, Telmate)',t:'tel',ini:'VP',col:'#148f94',meta:'Falls Church (Virginie) · détenue par American Securities depuis 2011',p:'Second acteur des télécommunications carcérales : téléphones, tablettes, paiements dans près de 2 000 établissements locaux, d’État et fédéraux. Avec Securus, les deux groupes contrôlent l’essentiel d’un marché de plus de 1,4 Md$.',num:[['≈ 2 000','établissements']]},
+ {n:'Keefe Group / TKC Holdings',t:'com',ini:'K',col:'#c97f0c',meta:'Saint Louis (Missouri) · détenue par HIG Capital depuis 2012 · comprend Trinity Services Group',p:'Leader de la cantine (commissary) pour 650 000 détenus dans 800 prisons, et de la restauration (Trinity) pour 190 000 détenus dans 40 États. Chiffre d’affaires estimé à 1 Md$ par an ; accusé de marges excessives sur les produits de base.',num:[['650 000','détenus (cantine)'],['≈ 1 Md$','chiffre d’affaires estimé']]},
+ {n:'Aramark Correctional Services',t:'food',ini:'A',col:'#6e7686',meta:'Philadelphie (Pennsylvanie) · NYSE : ARMK',p:'Plus grand fournisseur de repas carcéraux : plus d’un million de repas par jour dans plus de 400 établissements. Le Michigan a rompu un contrat de 145 M$ en 2015 après des rapports sur des pénuries et des cuisines insalubres, avant de le confier à Trinity pour 158 M$ par an.',num:[['> 1 M','repas par jour'],['> 400','établissements']]},
+ {n:'Wellpath',t:'med',ini:'W',col:'#6b4fd6',meta:'Nashville (Tennessee) · détenue par HIG Capital depuis 2013',p:'Premier prestataire de santé en détention : 275 000 patients dans près de 300 établissements. Visé par des centaines de procès pour soins défaillants ; placé sous la protection du chapitre 11 (faillite) fin 2024.',num:[['275 000','patients'],['≈ 300','établissements']]},
+ {n:'YesCare (ex Corizon)',t:'med',ini:'Y',col:'#c43d82',meta:'Brentwood (Tennessee) · Flacks Group',p:'Ancien numéro un de la santé carcérale (1,5 Md$ de revenus, 28 États). Restructuré en 2022 par une manœuvre dite « Texas two-step » qui a isolé les dettes et les procès dans une coquille mise en faillite.',num:[['50 000','patients'],['52','établissements']]},
+ {n:'BI Inc. (GEO)',t:'sur',ini:'BI',col:'#3cc4c9',meta:'Boulder (Colorado) · filiale de GEO Group',p:'Fournisseur unique du programme « Alternatives to Detention » de l’ICE : 180 000 personnes sous surveillance électronique, dont plus de 40 000 avec un bracelet GPS. L’e-incarcération est devenue le relais de croissance du secteur.',num:[['180 000','personnes surveillées'],['> 40 000','bracelets GPS']]}
+];
+S.entreprises=()=>head('entreprises','14 · ENTREPRISES','Qui gagne de l’argent avec la prison','Deux groupes cotés gèrent les prisons privées ; une dizaine de sociétés, souvent détenues par des fonds de capital-investissement, se partagent le téléphone, la cantine, les repas, la santé et la surveillance électronique de deux millions de personnes.',[`Les prisons privées détiennent moins de <b>9 %</b> des détenus, mais 61 % de ceux de l’ICE.`,`Les vrais géants vendent des <b>services</b> : téléphone, cantine, repas, santé, bracelets.`,`GEO Group vise <b>3 Md$</b> de revenus en 2026, record historique.`])+`
+<div class="grid g3">
+ ${card('Qui est détenu dans le privé','170 000 personnes, moins de 9 % du total.',hbars([{k:'Pour les prisons d’État',v:75000,c:C.amber},{k:'Pour l’ICE',v:43000,c:C.violet},{k:'Pour le BOP et les Marshals',v:33000,c:C.red},{k:'Pour les autorités locales',v:13000,c:C.steel},{k:'Pour les systèmes de mineurs',v:6000,c:C.teal}],{lw:230,W:760}),'PPI 2026, d’après BJS, BOP, USMS et ICE. 61 % des détenus de l’ICE sont dans des centres privés.','span2')}
+ ${card('Un secteur politique','Les opérateurs investissent dans le pouvoir.',`<ul class="facts"><li>CoreCivic, GEO Group, leurs filiales et dirigeants ont donné près de <b>2,8 M$</b> à la campagne 2024 et au fonds d’investiture de Donald Trump (CREW).</li><li>Après l’élection de novembre 2024, l’action GEO a gagné <b>86 %</b> et CoreCivic <b>58 %</b>.</li><li>Le décret Biden de janvier 2021 interdisant au ministère de la Justice de renouveler ses contrats privés a été <b>annulé le 20 janvier 2025</b>.</li><li>La loi budgétaire de 2025 (« One Big Beautiful Bill ») apporte <b>45 Md$</b> pour la détention migratoire, avec un objectif de 100 000 lits.</li></ul>`,'CREW ; SEC (10-K CoreCivic 2024) ; CBS News ; Benzinga.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${COS.map(c=>`<div class="card"><div class="co"><div class="logo" style="background:${c.col}">${c.ini}</div><div><h4>${c.n} <span class="tag ${c.t}">${{op:'Opérateur',tel:'Télécoms',com:'Cantine',food:'Repas',med:'Santé',sur:'Surveillance'}[c.t]}</span></h4><div class="meta">${c.meta}</div><p>${c.p}</p><div class="num">${c.num.map(n=>`<div><b>${n[0]}</b><span>${n[1]}</span></div>`).join('')}</div></div></div></div>`).join('')}
+</div>
+<div class="note" style="margin-top:16px"><b>Le vrai modèle économique.</b> Les opérateurs de prisons privées pèsent environ 4 Md$ de revenus ; les prestataires de services, eux, facturent directement les détenus et leurs proches. Privatiser le téléphone, les soins et la cantine permet aux prisons publiques de <b>déplacer le coût de l’incarcération sur les familles</b>, et de masquer son prix réel au contribuable.</div>
+</section>`;
+
+S.histoire=()=>head('histoire','12 · HISTOIRE','Un siècle d’enfermement','En 1972, les États-Unis comptaient 200 000 détenus en prison. En 2009, 1,6 million. La population carcérale a été multipliée par huit en quarante ans, avant de reculer d’un quart depuis son pic.',[`De <b>200 000</b> détenus en 1972 à <b>1,6 million</b> en 2009 : multiplication par huit.`,`Le taux d’emprisonnement a reculé d’<b>un quart</b> depuis 2013.`,`Depuis 2022, les prisons d’État regagnent du terrain.`])+`
+<div class="grid g2">
+ ${card('Les jails locales, 1983 à 2024','Population moyenne des jails de comté et de ville.',lineChart([[1983,223551],[1990,405320],[1995,507044],[2000,621149],[2005,747529],[2008,785533],[2010,748728],[2013,731200],[2016,740700],[2019,734500],[2020,549100],[2021,636300],[2022,663100],[2023,664200],[2024,647300]],{xticks:[1985,1995,2005,2015,2024],fmtY:v=>fmt(v/1000)+' k',fmtTip:pt=>fmt(pt[1])+' personnes',marks:[[2008,'Pic 785 533'],[2020,'Covid']]})+`<p class="txt" style="margin-top:8px">Les jails ont triplé entre 1983 et 2008. Depuis 1997, <b>toute leur croissance nette vient des personnes non condamnées</b> : la part des détenus en attente de jugement est passée d’environ 50 % au milieu des années 1990 à près de <b>70 %</b> aujourd’hui.</p>`,'BJS, Jail Inmates series et Jails Report Series 2024 ; Prison Policy Initiative.')}
+ ${card('Femmes et hommes : deux trajectoires','Détenus en prison d’État et fédérale, base 100 en 1980.',lineChart([[1980,100],[1990,328],[2000,694],[2009,847],[2019,806],[2020,620],[2021,625],[2022,655],[2023,680]],{xticks:[1980,1990,2000,2010,2020],fmtY:v=>fmt(v),fmtTip:pt=>'Femmes : indice '+fmt(pt[1]),ymax:900})+`<div class="legend"><span><i style="background:var(--blue)"></i>Femmes (indice, 1980 = 100) : 13 400 en 1980, 91 100 en 2023</span></div><p class="txt" style="margin-top:8px">Sur la même base, les hommes sont à l’indice <b>370</b> en 2023 (316 000 en 1980, 1 163 100 en 2023). La population féminine a été multipliée par <b>6,8</b>, la masculine par 3,7. Les femmes ont aussi moins profité de la décrue : leur pic de 2009 n’est dépassé que de 20 % vers le bas, contre 23 % pour les hommes.</p>`,'BJS, Prisoners series (1980 à 2023).')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Détenus en prison d’État et fédérale, 1925 à 2023','Hors jails locales. Survolez la courbe.',lineChart(HIST,{W:1100,xticks:[1930,1950,1970,1990,2010,2023],fmtY:v=>(v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:1})+' M',marks:[[1971,'Guerre aux drogues'],[1994,'Crime Bill'],[2009,'Pic'],[2020,'Covid']]})+`<div class="legend"><span><i style="background:var(--amber)"></i>Prisonniers sous juridiction des États et du gouvernement fédéral</span></div>`,'BJS, séries historiques Prisoners (1926 à 2023).','span2')}
+ ${card('Le taux d’emprisonnement','Condamnés pour 100 000 habitants.',vbars([{k:'1925',v:79},{k:'1972',v:93},{k:'1980',v:139},{k:'1990',v:297},{k:'2000',v:478},{k:'2008',v:506,c:C.red},{k:'2013',v:479},{k:'2023',v:360,c:C.steel}],{fmtV:i=>i.v}),'BJS. Le pic de 2008 (506) est 5,4 fois le niveau de 1972.')}
+ ${card('Les grandes dates',null,`<div class="timeline">
+  ${[['1865','13e amendement','Abolition de l’esclavage « sauf comme punition d’un crime ».'],['1971','Nixon déclare la « guerre aux drogues »','Les stupéfiants deviennent « l’ennemi public numéro un ».'],['1973','Lois Rockefeller (New York)','Peines planchers de 15 ans à perpétuité pour la vente de drogue ; modèle copié par les États.'],['1983','Première prison privée','Création de Corrections Corporation of America (CoreCivic) à Nashville.'],['1984','Sentencing Reform Act','Fin de la libération conditionnelle au fédéral, peines fixes.'],['1986','Anti-Drug Abuse Act','Ratio 100 pour 1 entre crack et cocaïne en poudre ; explosion des peines fédérales.'],['1994','Violent Crime Control Act (« Crime Bill »)','9,7 Md$ pour construire des prisons, « trois coups et dehors », fin des Pell Grants pour les détenus.'],['2009','Pic historique','1 615 487 personnes en prison d’État et fédérale.'],['2010','Fair Sentencing Act','Le ratio crack/cocaïne passe à 18 pour 1.'],['2018','First Step Act','Réduction des peines fédérales, crédits de bonne conduite, 2024 : plus de 30 000 bénéficiaires.'],['2020','Pandémie','Chute de 15 % en un an, la plus forte jamais enregistrée.'],['2021','Décret Biden','Fin des contrats privés pour le ministère de la Justice (BOP et Marshals).'],['2023','Retour des Pell Grants','Les détenus redeviennent éligibles aux bourses fédérales après 29 ans.'],['2025','Retournement fédéral','Décret annulé, 45 Md$ pour la détention migratoire, 48 exécutions (record depuis 15 ans).'],['2026','Record ICE','Plus de 70 000 personnes en détention migratoire, du jamais vu.']].map(e=>`<div class="ev"><div class="y">${e[0]}</div><div class="t">${e[1]}</div><div class="d">${e[2]}</div></div>`).join('')}
+ </div>`,null)}
+</div></section>`;
+
+S.monde=()=>head('monde','05 · MONDE','Les États-Unis face au monde','Avec 542 détenus pour 100 000 habitants selon le World Prison Brief (580 selon le Whole Pie, qui compte toutes les formes de détention), les États-Unis occupent le cinquième rang mondial, derrière quatre pays sans équivalent démocratique, et loin devant toutes les autres grandes économies.',[`<b>5e</b> taux mondial, derrière El Salvador, Cuba, le Rwanda et le Turkménistan.`,`<b>1er</b> en nombre absolu : plus de détenus que la Chine.`,`Au taux allemand, les États-Unis n’enfermeraient que 235 000 personnes.`])+`
+<div class="grid g2">
+ ${card('Taux de détention pour 100 000 habitants','Classement World Prison Brief, données 2024 à 2026.',hbars(WORLD.map(w=>({k:w[0],v:w[1],c:w[0]==='États-Unis'?C.amber:(w[1]>500?C.red:w[1]>150?C.violet:C.steel)})),{lw:200,rh:30,W:1100,unit:''}),'Institute for Crime & Justice Policy Research, World Prison Brief ; World Prison Population List (14e édition). Les dates de référence varient selon les pays.','span2')}
+ ${card('Nombre absolu de détenus','Les cinq plus grandes populations carcérales.',hbars(WORLD_ABS.slice(0,5).map((w,i)=>({k:w[0],v:w[1],c:i?C.steel:C.amber})),{lw:120,fmtV:i=>(i.v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2})+' M'})+`<p class="txt" style="margin-top:8px">Les États-Unis détiennent plus de personnes que la Chine, pourtant quatre fois plus peuplée. Le taux mondial moyen est de <b>140</b> pour 100 000 ; près de la moitié des pays sont sous 150.</p>`,'World Prison Brief ; Statista 2026.')}
+ ${card('Et si les États-Unis avaient le taux d’un autre pays ?','Nombre de détenus en moins, pour 340 millions d’habitants et un taux de 580.',hbars([{k:'Taux du Royaume-Uni (146)',v:1476000,c:C.steel},{k:'Taux de la France (124)',v:1550000,c:C.steel},{k:'Taux du Canada (90)',v:1666000,c:C.steel},{k:'Taux de l’Allemagne (69)',v:1737000,c:C.green},{k:'Taux de la Norvège (56)',v:1782000,c:C.green},{k:'Taux du Japon (33)',v:1860000,c:C.green}],{lw:200,fmtV:i=>'-'+fmt(i.v)})+`<p class="txt" style="margin-top:8px">Au taux allemand, les États-Unis n’enfermeraient que 235 000 personnes au lieu de près de deux millions. Les femmes américaines ont, à elles seules, l’un des taux d’incarcération les plus élevés du monde.</p>`,'Calcul de l’application sur les taux du World Prison Brief.')}
+</div></section>`;
+
+S.vie=()=>head('vie','11 · VIE ET SANTÉ','Vivre, mourir et revenir','Santé mentale, drogues, isolement, morts en détention, peine de mort, erreurs judiciaires et récidive : la face humaine des chiffres.',[`<b>4 896</b> morts dans les prisons d’État et fédérales en 2023 ; le suicide est la première cause de décès en jail.`,`<b>82 %</b> des libérés sont rearrêtés dans les dix ans, surtout pour des faits mineurs.`,`<b>48</b> exécutions en 2025, record depuis quinze ans ; 3 646 personnes innocentées depuis 1989.`])+`
+<div class="grid g5">
+ ${kpi('4 896','morts en prison d’État ou fédérale en 2023','Soit 13 décès par jour ; 4 898 en 2022 (BJS)')}
+ ${kpi('2 sur 3','détenus de jail ont un trouble lié aux substances','Seule une infime minorité des jails offrent un traitement médicamenteux des opioïdes')}
+ ${kpi('+400 %','morts par intoxication en jail','Entre 2000 et 2018, souvent dans les 24 heures suivant l’admission')}
+ ${kpi('≈ 120 000','personnes à l’isolement','Cellule 22 heures sur 24 ; estimation Yale et Solitary Watch, 2023')}
+ ${kpi('n°1','le suicide, première cause de décès en jail','Taux très supérieur à la population générale (BJS)')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Santé mentale','Part des détenus ayant un antécédent de trouble mental diagnostiqué.',hbars([{k:'Jails',v:44,c:C.red},{k:'Prisons d’État',v:37,c:C.amber},{k:'Prisons fédérales',v:23,c:C.steel},{k:'Population générale',v:18,c:C.grey}],{lw:130,W:400,unit:' %'})+`<p class="txt" style="margin-top:8px">Des milliers de personnes atteintes de maladies mentales graves attendent en jail, parfois des années, qu’un lit d’hôpital psychiatrique se libère ; 25 000 personnes sont internées de force à la suite d’une procédure pénale.</p>`,'BJS, Indicators of Mental Health Problems Reported by Prisoners and Jail Inmates (2017) ; Treatment Advocacy Center.')}
+ ${card('La récidive','Personnes libérées des prisons d’État, suivies pendant dix ans.',hbars([{k:'Rearrêtées dans l’année',v:43,c:C.red},{k:'Rearrêtées en 3 ans',v:68,c:C.red},{k:'Rearrêtées en 5 ans',v:77,c:C.amber},{k:'Rearrêtées en 10 ans',v:82,c:C.amber},{k:'Violents rearrêtés pour violence en 5 ans',v:33,c:C.steel}],{lw:200,W:400,rh:26,unit:' %'})+`<p class="txt" style="margin-top:8px">La plupart des arrestations ont lieu dans les trois premières années. Les personnes condamnées pour violences ou infractions sexuelles sont <b>les moins souvent rearrêtées</b> ; leurs réarrestations sont surtout des infractions à l’ordre public.</p>`,'BJS, Recidivism of Prisoners Released in 24 States in 2008: A 10-Year Follow-Up Period.')}
+ ${card('La peine de mort','Exécutions par an aux États-Unis, 1977 à 2025.',vbars([{k:'1977',v:1},{k:'1985',v:18},{k:'1990',v:23},{k:'1995',v:56},{k:'1999',v:98,c:C.red},{k:'2005',v:60},{k:'2010',v:46},{k:'2015',v:28},{k:'2020',v:17},{k:'2021',v:11},{k:'2022',v:18},{k:'2023',v:24},{k:'2024',v:25},{k:'2025',v:48,c:C.red}],{W:400,fmtV:i=>i.v})+`<p class="txt" style="margin-top:8px">48 exécutions, le plus haut niveau depuis quinze ans, dues presque entièrement à la Floride. Les jurys ont pourtant refusé la mort dans <b>56 %</b> des procès capitaux ; le soutien à la peine de mort est tombé à <b>52 %</b>, au plus bas depuis cinquante ans (Gallup). Environ 2 100 personnes attendent dans les couloirs de la mort. La Louisiane a adopté l’azote, la Caroline du Sud le peloton d’exécution.</p>`,'Death Penalty Information Center, Year End Report 2025 ; Gallup.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('De quoi meurt-on en prison','Causes de décès, prisons d’État, dernière ventilation détaillée publiée (2019, 4 234 décès).',donut([{k:'Maladie (cancer, cœur, foie…)',v:83,c:C.amber},{k:'Suicide',v:8,c:C.red},{k:'Intoxication (drogue, alcool)',v:6,c:C.amber2},{k:'Homicide',v:3,c:C.navy}],{center:'4 234',centerLabel:'décès 2019',fmtTip:(i,t)=>pct(i.v),fmtL:i=>pct(i.v)})+`<p class="txt" style="margin-top:8px">En jail, la structure est différente : le <b>suicide</b> y est la première cause, près d’un décès sur trois, souvent dans les premiers jours. Le nombre total de morts en prison est passé à <b>4 896</b> en 2023, population vieillissante oblige.</p>`,'BJS, Mortality in State and Federal Prisons, 2001-2019 ; Prisoners in 2023.')}
+ ${card('Ceux qui gardent','Le personnel pénitentiaire américain.',hbars([{k:'Surveillants et geôliers (BLS)',v:360000,c:C.amber},{k:'Personnel des prisons d’État et fédérales',v:420000,c:C.navy}],{lw:200,W:400,rh:30})+`<ul class="facts" style="margin-top:10px"><li>Environ <b>1 employé pour 3 détenus</b> dans les prisons ; salaire médian d’un surveillant proche de <b>53 000 $</b>.</li><li>Les salaires représentent <b>68 %</b> des dépenses des prisons d’État.</li><li>Pénurie chronique : des établissements du Texas, de Géorgie ou du BOP fonctionnent avec un tiers de postes vacants, d’où confinements prolongés et violences.</li></ul>`,'Bureau of Labor Statistics, Occupational Employment 2023 ; BJS, Census of State and Federal Adult Correctional Facilities 2019 ; Vera Institute.')}
+ ${card('Les erreurs judiciaires','Registre national des exonérations.',`<ul class="facts"><li><b>3 646</b> exonérations recensées depuis 1989 (avril 2025).</li><li><b>147</b> innocentés en 2024 après <b>13,5 ans</b> de prison en moyenne, soit 1 980 années perdues au total ; les États sont redevables de plus de 4,6 Md$.</li><li>Des fautes officielles (police, parquet) interviennent dans <b>104</b> des 147 cas ; 22 reposent sur de faux aveux.</li><li>En 2023, <b>84 %</b> des exonérés étaient des personnes de couleur.</li><li>Les réseaux de policiers corrompus de Chicago (Watts) ont à eux seuls entraîné des dizaines d’annulations.</li></ul>`,'National Registry of Exonerations, rapports annuels 2023 et 2024.')}
+ ${card('Les mineurs','34 000 jeunes enfermés.',hbars([{k:'Établissements pour mineurs',v:29000,c:C.teal},{k:'Prisons et jails pour adultes',v:2500,c:C.red},{k:'Centres pour mineurs isolés (ORR)',v:2500,c:C.violet}],{lw:200,W:400})+`<ul class="facts" style="margin-top:10px"><li>Plus de <b>3 000</b> jeunes sont enfermés pour une simple violation de probation, <b>800</b> pour une infraction qui n’existe pas chez les adultes (fugue, absentéisme).</li><li>Près de la moitié des jeunes placés en famille d’accueil ont un contact avec la justice avant 17 ans.</li></ul>`,'PPI, Youth Confinement 2025 ; OJJDP.')}
+ ${card('Ce que veulent les victimes','Enquête nationale auprès de victimes de violences, 2022.',hbars([{k:'Investir dans la santé mentale plutôt que les prisons',v:80,c:C.green},{k:'Responsabiliser autrement que par la prison',v:75,c:C.green},{k:'Récompenser la réinsertion par des remises de peine',v:72,c:C.green},{k:'Réduire la détention avant procès',v:71,c:C.green}],{lw:220,W:400,rh:30,unit:' %'})+`<p class="txt" style="margin-top:8px">La recherche sur la dissuasion (National Institute of Justice, 2016) conclut que la longueur des peines dissuade peu, et que la prison a plutôt un effet « légèrement criminogène ».</p>`,'Alliance for Safety and Justice, « Crime Survivors Speak » ; NIJ.')}
+</div></section>`;
+
+S.femmes=()=>head('femmes','09 · FEMMES','Les femmes incarcérées','Elles sont une minorité derrière les barreaux, mais leur nombre a progressé plus vite que celui des hommes pendant des décennies. Les États-Unis ont l’un des taux d’incarcération féminine les plus élevés du monde.',[`<b>91 100</b> femmes en prison, près de 190 000 détenues en tout.`,`Un taux parmi les plus élevés du monde : <b>117</b> pour 100 000 femmes.`,`Plus de la moitié sont mères d’un enfant mineur.`])+`
+<div class="grid g4">
+ ${kpi('91 100','femmes en prison d’État ou fédérale','Fin 2023, +4 % en un an, contre +2 % pour les hommes')}
+ ${kpi('≈ 190 000','femmes et filles détenues au total','Jails, prisons, détention migratoire et mineures (Whole Pie des femmes)')}
+ ${kpi('64','femmes emprisonnées pour 100 000','Contre 871 hommes : un rapport de 1 à 13,6')}
+ ${kpi('7,3 %','part des femmes dans les prisons','Mais près de 1 sur 7 en jail, où elles attendent le plus souvent leur procès')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Femmes : où et pourquoi','Répartition approximative des femmes détenues.',donut([{k:'Jails locales',v:93000,c:C.steel},{k:'Prisons d’État',v:76000,c:C.amber},{k:'Prisons fédérales',v:11000,c:C.red},{k:'Mineures',v:4000,c:C.teal},{k:'Détention migratoire et autres',v:6000,c:C.violet}],{center:'190 k'})+`<p class="txt" style="margin-top:8px">Près de la moitié des femmes incarcérées sont en jail, non condamnées pour la plupart. Les infractions aux biens et aux stupéfiants pèsent beaucoup plus lourd que chez les hommes ; 1 femme sur 4 en prison d’État est détenue pour stupéfiants.</p>`,'Prison Policy Initiative, « Women’s Mass Incarceration: The Whole Pie 2024 ».')}
+ ${card('Taux de détention féminine pour 100 000 femmes','Comparaison internationale.',hbars([{k:'États-Unis',v:117,c:C.amber},{k:'Thaïlande',v:60,c:C.steel},{k:'Brésil',v:40,c:C.steel},{k:'Russie',v:34,c:C.steel},{k:'Australie',v:26,c:C.steel},{k:'Angleterre et Galles',v:12,c:C.green},{k:'France',v:8,c:C.green},{k:'Allemagne',v:6,c:C.green}],{lw:160,unit:''})+`<p class="txt" style="margin-top:8px">Si les États américains étaient des pays, les 26 premiers rangs mondiaux du classement seraient occupés par des États américains. L’Idaho et l’Oklahoma dépassent 200 pour 100 000.</p>`,'Prison Policy Initiative, « States of Women’s Incarceration: The Global Context 2025 » ; World Prison Brief.')}
+</div>
+<div class="grid g3" style="margin-top:16px">
+ ${card('Des mères','La prison des femmes est aussi celle des enfants.',`<ul class="facts"><li><b>58 %</b> des femmes en prison d’État ont un enfant mineur (47 % des hommes).</li><li>Environ <b>5 %</b> des femmes arrivent enceintes en jail ; près de 60 000 grossesses par an passent par la détention.</li><li>Jusqu’en 2018 (First Step Act au fédéral), entraver une femme pendant l’accouchement était légal dans de nombreux États.</li></ul>`,'BJS, Survey of Prison Inmates 2016 ; Johns Hopkins, étude ARRWIP.')}
+ ${card('Les violences subies avant','Antécédents déclarés par les femmes détenues.',hbars([{k:'Violences physiques ou sexuelles avant la prison',v:86,c:C.red},{k:'Trouble lié aux substances',v:69,c:C.amber},{k:'Problème de santé mentale',v:66,c:C.violet}],{lw:210,W:400,unit:' %'}),'Vera Institute, « Overlooked: Women and Jails in an Era of Reform » (2016).')}
+ ${card('Une croissance plus rapide','Évolution des populations féminines et masculines.',`<p class="txt">Entre 1980 et 2022, le nombre de femmes incarcérées a été multiplié par plus de <b>6</b>, contre moins de 4 pour les hommes. Depuis le pic de 2009, les femmes ont moins profité de la décrue, surtout dans les prisons d’État où plusieurs États continuent d’augmenter leurs effectifs féminins : 41 États ont vu leur population féminine croître entre 2022 et 2023.</p>`,'The Sentencing Project, « Incarcerated Women and Girls » ; BJS 2023.')}
+</div></section>`;
+
+S.simulateur=()=>head('simulateur','15 · SIMULATEUR','Calculez par vous-même','Deux outils pour donner une échelle aux chiffres : le coût d’une peine selon l’État, et le poids du système dans votre propre pays s’il incarcérait comme l’Amérique.')+`
+<div class="grid g2">
+ <div class="card sim"><h3>Combien coûte une peine de prison ?</h3><p class="sub">Coût direct pour le contribuable, hors coût social (emploi perdu, famille, santé).</p>
+  <label>Juridiction</label><select id="simState">
+   <option value="69355">New York (69 355 $ par an)</option><option value="64642">Californie (64 642 $)</option><option value="47162">Prison fédérale (47 162 $)</option><option value="33274" selected>Moyenne des États (33 274 $)</option><option value="22012">Texas (22 012 $)</option><option value="14780">Alabama (14 780 $)</option></select>
+  <label>Durée de la peine : <b id="simYearsV">5 ans</b></label><input type="range" id="simYears" min="1" max="40" value="5">
+  <label>Nombre de personnes</label><input type="number" id="simN" value="1" min="1" max="2000000">
+  <div class="out"><div class="v" id="simOut">166 370 $</div><div class="s" id="simOut2"></div></div>
+ </div>
+ <div class="card sim"><h3>Si votre pays enfermait comme les États-Unis</h3><p class="sub">Appliquez le taux américain (580 pour 100 000) à un autre pays.</p>
+  <label>Pays</label><select id="simCountry">
+   <option value="68.6|124">France</option><option value="83.5|69">Allemagne</option><option value="60.5|146">Royaume-Uni (Angleterre et Galles)</option><option value="40|90">Canada</option><option value="14.5|115">Guinée</option><option value="0.67|135">Luxembourg</option><option value="11.7|90">Belgique</option><option value="48|123">Espagne</option><option value="124|33">Japon</option></select>
+  <div class="out"><div class="v" id="simC1"></div><div class="s" id="simC2"></div></div>
+  <div class="bars2" id="simBars" style="margin-top:14px"></div>
+ </div>
+</div></section>`;
+
+const QUIZ=[
+ ['Combien de personnes sont incarcérées aux États-Unis un jour donné ?',['Environ 500 000','Près de 2 millions','Environ 5 millions','Plus de 10 millions'],1,'Près de 2 millions (1,98 million selon le Whole Pie 2026). Avec probation et libération conditionnelle, 5,6 millions de personnes sont sous contrôle correctionnel.'],
+ ['Quelle part des personnes en jail n’a pas encore été jugée ?',['Un quart','La moitié','Près de 80 %','Presque aucune'],2,'426 000 des 546 000 personnes détenues pour les autorités locales attendent leur procès, souvent faute de pouvoir payer une caution médiane de 10 000 $.'],
+ ['Quelle part des détenus se trouve dans une prison privée ?',['Moins de 9 %','Environ 25 %','La moitié','Plus de 70 %'],0,'Moins de 9 %. Le système est d’abord public ; les entreprises privées gagnent surtout sur les services (téléphone, cantine, santé).'],
+ ['Pour 100 000 adultes noirs, combien sont emprisonnés (2023) ?',['231','606','1 045','1 218'],3,'1 218 pour 100 000, soit cinq fois le taux des adultes blancs (231).'],
+ ['Quelle est la première catégorie d’infractions dans les prisons d’État ?',['Stupéfiants','Atteintes aux biens','Violences','Ordre public'],2,'684 000 des 1,1 million de détenus d’État sont condamnés pour une infraction classée violente, catégorie juridiquement très large.'],
+ ['Quelle part des détenus d’État n’a ni diplôme de lycée ni GED ?',['10 %','20 %','41 %','75 %'],2,'Environ 41 %, contre 18 % en population générale ; 68 % n’ont pas le diplôme de lycée lui-même.'],
+ ['Quelle religion est la plus surreprésentée en prison fédérale par rapport au pays ?',['Catholicisme','Islam','Judaïsme','Bouddhisme'],1,'Les musulmans sont 8,8 % des détenus fédéraux pour 1 % des Américains, soit près de neuf fois plus.'],
+ ['Combien coûte le système pénal américain chaque année, selon l’estimation 2026 ?',['45 Md$','182 Md$','445 Md$','1 000 Md$'],2,'Au moins 445 milliards de dollars, dont 54,3 Md$ pour la police et la détention migratoires.'],
+ ['Quel pays a le taux d’incarcération le plus élevé du monde ?',['États-Unis','Russie','El Salvador','Chine'],2,'El Salvador, avec 1 659 détenus pour 100 000 habitants depuis la répression des gangs. Les États-Unis sont cinquièmes (542).'],
+ ['Quel amendement autorise le travail forcé « comme punition d’un crime » ?',['Le 1er','Le 5e','Le 13e','Le 14e'],2,'Le 13e amendement (1865) abolit l’esclavage sauf comme punition d’un crime. Plusieurs États retirent cette clause de leur constitution.']
+];
+S.quiz=()=>head('quiz','16 · QUIZ','Dix questions pour vérifier','Chaque réponse renvoie à un chiffre de l’application.')+`<div class="card"><div id="quizBox"></div><div class="note" id="quizScore" style="display:none"></div></div></section>`;
+
+
+S.fiche=()=>head('fiche','17 · FICHE','Fiche récapitulative : 40 chiffres à retenir','Tout ce qu’il faut pour une conversation, un cours ou un article. Chaque ligne renvoie à sa source dans l’application.')+`
+<div class="card"><div class="grid g2" style="gap:0 32px">${[
+['Population','1,98 M détenus un jour donné · 1 254 200 en prison d’État ou fédérale (fin 2023) · 546 000 en jail · 71 000 à l’ICE · 29 000 mineurs'],
+['Taux','580 pour 100 000 (toutes détentions) · 360 condamnés pour 100 000 (BJS) · 5e rang mondial · 1er des démocraties'],
+['Flux','7,6 M de passages en jail par an · 472 300 admissions en prison · 453 200 libérations · 1 sur 4 rearrêté dans l’année après un passage en jail'],
+['Contrôle','5,6 M sous contrôle correctionnel · 3,1 M en probation · 680 400 en libération conditionnelle · 19 M de personnes avec une condamnation pour crime · 79 M avec un casier'],
+['Infractions (État)','62 % violence · 13 % stupéfiants · 13 % biens · 12 % ordre public · 166 000 pour meurtre · 172 000 pour viol ou agression sexuelle'],
+['Fédéral','45 % stupéfiants · 6 500 pour infraction d’immigration · 56 000 en attente chez les Marshals · 153 238 au BOP'],
+['Jails','78 % non condamnés · caution médiane 10 000 $ · 19 % détenus pour violation de probation ou parole · suicide première cause de décès'],
+['Origines','Noirs : 14 % de la population, 33 % des condamnés, 42 % des incarcérés · 1 218 / 100 000 adultes noirs, 1 045 Amérindiens, 606 Hispaniques, 231 Blancs, 88 Asiatiques'],
+['Sexe et âge','93 % d’hommes · 91 100 femmes en prison (+4 %) · 871 hommes et 64 femmes pour 100 000 · 16 % de 55 ans et plus (4 % en 2002) · 192 900 de 55 ans et plus'],
+['Pauvreté et enfance','Revenu inférieur de 41 % avant l’incarcération · 42 % issus d’une famille aidée · 38 % arrêtés avant 16 ans · 18 % passés en famille d’accueil'],
+['Études','41 % sans lycée ni GED (18 % des Américains) · 68 % sans diplôme de lycée · 26 % obtiennent le GED en détention · 52 % au plus bas niveau de calcul (PIAAC) · -43 % de récidive avec un programme éducatif'],
+['Religions','≈ 66 % chrétiens (51 % protestants, 15 % catholiques) · 9 % musulmans (1 % dans le pays) · 11 % sans religion · 74 % des aumôniers : prosélytisme courant'],
+['Argent','445 Md$ par an · +27 % de dépenses de corrections depuis 2017 · 54,3 Md$ pour l’immigration · 47 162 $ par détenu fédéral · 14 780 $ (Alabama) à 69 355 $ (New York)'],
+['Familles et travail','2,9 Md$ de téléphone et cantine · 1,4 Md$ de cautions · salaires de 0,86 à 3,45 $ par jour · 5 États ne paient rien · 4 200 détenus employés par des entreprises privées (PIECP)'],
+['Privé','< 9 % des détenus · 170 000 personnes · 75 260 détenus d’État · 61 % des détenus de l’ICE · GEO Group 2,63 Md$ (2025) · CoreCivic ≈ 2 Md$ · 2,8 M$ de dons à la campagne 2024'],
+['États','Texas 149 264 · Californie 95 962 · Floride 87 207 · Mississippi 652 / 100 000 · Massachusetts 96 / 100 000 · 20 États sans prison privée'],
+['Histoire','1972 : 200 000 · 2009 : 1 615 487 (pic) · 2023 : 1 254 200 · taux 2008 : 506 · taux 2023 : 360 (-25 % depuis 2013) · 2020 : -15 % en un an'],
+['Monde','El Salvador 1 659 · Cuba 794 · Rwanda 620 · Turkménistan 576 · États-Unis 542 · France 124 · Allemagne 69 · Japon 33 · moyenne mondiale 140'],
+['Santé et mort','4 896 décès en prison (2023) · 44 % des détenus de jail avec trouble mental diagnostiqué · 2 sur 3 avec trouble lié aux substances · ≈ 120 000 à l’isolement'],
+['Peine de mort et erreurs','48 exécutions en 2025 (19 en Floride) · 22 nouvelles condamnations · 52 % de soutien (Gallup) · 3 646 exonérations depuis 1989 · 13,5 ans perdus en moyenne (2024)']
+].map(r=>`<div style="padding:10px 0;border-bottom:1px solid var(--rule)"><div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:3px">${r[0]}</div><div style="font-size:13.5px;color:var(--ink2);line-height:1.55">${r[1]}</div></div>`).join('')}</div><div class="src">Sources : voir le chapitre Sources. Les chiffres datent de 2023 (BJS) à janvier 2026 (ICE, BOP, PPI).</div></div>
+</section>`;
+
+S.rapport=()=>head('rapport','18 · RAPPORT','Rapport intégré et note d’expertise','Une lecture complète, de la mécanique du système à son verdict.')+`
+<div class="report">
+<h3>1. L’exception américaine</h3>
+<p>Il n’existe pas <b>un</b> système carcéral américain, mais des milliers : un système fédéral, cinquante systèmes d’État, plus de trois mille jails de comté, des centres pour mineurs, des hôpitaux psychiatriques fermés, des centres de détention migratoire et des prisons tribales. Mis bout à bout, ils enferment près de <b>deux millions de personnes</b> un jour donné, soit 580 pour 100 000 habitants. Aucune autre démocratie n’approche ce niveau : la France est à 124, l’Allemagne à 69, le Japon à 33.</p>
+<p>La masse ne dit pas tout. Chaque année, <b>7,6 millions de passages</b> en jail et <b>472 000 admissions</b> en prison font tourner la machine. Derrière les détenus, 3,1 millions de personnes sont en probation, 680 000 en libération conditionnelle, 19 millions vivent avec une condamnation pour crime, 79 millions avec un casier. Près d’un adulte américain sur deux a vu un proche passer au moins une nuit en détention.</p>
+<div class="pull">« Les États-Unis n’ont pas un problème de prisons privées ; ils ont un problème de prison. »</div>
+<h3>2. Où l’on enferme</h3>
+<p>Les <b>prisons d’État</b> détiennent 1,1 million de personnes, condamnées le plus souvent pour des faits qualifiés de violents (62 %). Les <b>jails</b> locales en détiennent 546 000, dont 426 000 n’ont pas été jugées : la détention provisoire est, depuis 1997, la seule source de croissance des jails. Le <b>système fédéral</b> (201 000 personnes) reste marqué par la guerre aux drogues : près d’un condamné fédéral sur deux l’est pour stupéfiants. La <b>détention migratoire</b>, enfin, est le secteur qui explose : plus de 70 000 personnes en janvier 2026, un record historique, dont les trois quarts sans aucune condamnation pénale.</p>
+<h3>3. Qui l’on enferme</h3>
+<p>Le profil du détenu américain est stable depuis quarante ans : un <b>homme</b> (93 % des condamnés), <b>pauvre</b> (revenus inférieurs de 41 % à ceux des hommes du même âge), <b>peu diplômé</b> (quatre sur dix sans diplôme de lycée ni GED), souvent passé par l’aide sociale, la famille d’accueil ou la rue, arrêté une première fois avant 16 ans dans 38 % des cas. Et, massivement, <b>noir</b> : 14 % de la population, 42 % des personnes incarcérées, un taux d’emprisonnement cinq fois supérieur à celui des Blancs. Les Amérindiens suivent de près. Ces écarts se réduisent lentement depuis 2013, mais à ce rythme, il faudrait des décennies pour les effacer.</p>
+<p>La religion reflète cette sociologie. Les prisons sont plus chrétiennes que le pays, et surtout beaucoup plus musulmanes : 9 % des détenus contre 1 % des Américains, par conversion en détention autant que par origine. Les sans-religion y sont deux fois moins nombreux qu’au dehors.</p>
+<h3>4. Ce que cela coûte</h3>
+<p>Le système pénal coûte au moins <b>445 milliards de dollars</b> par an. Les dépenses de corrections ont augmenté de 27 % depuis 2017 alors que la population suivie reculait de 15 % : la prison coûte de plus en plus cher par personne, surtout à cause des salaires des surveillants. Un détenu coûte 47 162 $ par an au fédéral, de 14 780 $ en Alabama à 69 355 $ à New York. Et la facture est pour partie reportée sur les familles : 2,9 milliards par an de téléphone et de cantine, 1,4 milliard de cautions, des frais médicaux, pour des détenus payés entre 86 cents et 3,45 $ par jour, parfois rien du tout.</p>
+<h3>5. Qui en profite</h3>
+<p>Les <b>opérateurs privés</b> (CoreCivic, GEO Group, MTC) ne gèrent que 9 % des détenus, mais 61 % des détenus de l’ICE ; GEO prévoit 3 milliards de chiffre d’affaires en 2026 et sa filiale BI surveille 180 000 migrants au bracelet. Les vrais géants sont les <b>prestataires de services</b>, souvent propriétés de fonds d’investissement : Securus et ViaPath pour le téléphone, Keefe et Aramark pour la cantine et les repas, Wellpath et YesCare pour la santé. Leur modèle consiste à facturer les détenus et leurs proches, ce qui permet aux prisons publiques de masquer leur coût réel.</p>
+<h3>6. Comment on en est arrivé là</h3>
+<p>Trois décennies de choix politiques : la guerre aux drogues de 1971, les lois Rockefeller de 1973, le Sentencing Reform Act de 1984, le ratio crack-cocaïne de 1986, le Crime Bill de 1994 et ses prisons financées, le « trois coups et dehors ». La population carcérale est passée de 200 000 en 1972 à 1,6 million en 2009. Depuis, la décrue est réelle mais fragile : le taux d’emprisonnement a reculé d’un quart, la pandémie a fait chuter les effectifs de 15 % en un an, et les prisons d’État regagnent du terrain depuis 2022, Texas et Floride en tête.</p>
+<h3>7. Ce que disent les données sur l’efficacité</h3>
+<p>Les peines longues dissuadent peu, la prison a plutôt un effet criminogène, 82 % des libérés sont rearrêtés dans les dix ans, surtout pour des infractions mineures ou des violations techniques de leur supervision (125 000 détenus pour ce seul motif). Les personnes condamnées pour violences sont pourtant les moins susceptibles de récidiver, parce que l’âge est le premier prédicteur de la violence. Les victimes elles-mêmes, interrogées, préfèrent à 80 % des investissements en santé mentale plutôt que de nouvelles prisons. L’éducation en détention réduit de 43 % le retour en prison : c’est l’investissement au meilleur rendement du système.</p>
+<h3>8. Note d’expertise et verdict</h3>
+<div class="verdict"><div><b>5e</b><span>rang mondial du taux de détention, 1er parmi les démocraties</span></div><div><b>x 8</b><span>multiplication de la population carcérale entre 1972 et 2009</span></div><div><b>-25 %</b><span>recul du taux d’emprisonnement entre 2013 et 2023</span></div></div>
+<p><b>Verdict.</b> L’incarcération de masse américaine n’est ni un accident ni le produit d’un lobby privé : c’est un choix public, construit par des lois votées, financé par des budgets votés, et qui pèse d’abord sur les plus pauvres et sur les Noirs. Le pays en est sorti par le haut une première fois entre 2009 et 2021. Trois signaux de 2025-2026 inversent la tendance : la reprise des prisons d’État dans une dizaine d’États, le retour des mineurs enfermés, et surtout une détention migratoire qui a crû de 58 % en un an avec 45 milliards de dollars de crédits nouveaux. Le prochain Whole Pie dira si les États-Unis ont simplement changé de population à enfermer.</p>
+<p><b>Ce qu’il faudrait surveiller.</b> Les données BJS 2024 sur les prisons d’État (publication prévue fin 2026) ; la population ICE, publiée toutes les deux semaines ; les décisions sur les plafonds téléphoniques de la FCC ; les référendums d’État sur la clause du 13e amendement ; et les résultats des Pell Grants restaurés, premier test à grande échelle de l’éducation comme politique pénale.</p>
+</div></section>`;
+
+S.sources=()=>head('sources','19 · SOURCES','Sources, méthode et glossaire','Chaque chiffre de l’application renvoie à l’une de ces sources. Les données sont celles disponibles en octobre 2026 ; les administrations publient avec un à trois ans de retard.')+`
+<div class="grid g2">
+ ${card('Sources principales',null,`<ol class="src">
+ <li><b>Prison Policy Initiative</b>, Mass Incarceration: The Whole Pie 2026 (11 mars 2026) et 2025 ; Following the Money of Mass Incarceration ; Women’s Mass Incarceration: The Whole Pie 2024 ; States of Women’s Incarceration 2025 ; Youth Confinement 2025.</li>
+ <li><b>Bureau of Justice Statistics (BJS)</b> : Prisoners in 2023 et 2022 (Statistical Tables) ; Correctional Populations in the United States, 2023 ; Jails Report Series 2024 ; Education and Correctional Populations (2003) ; Survey of Prison Inmates 2016 ; Indicators of Mental Health Problems (2017) ; Recidivism of Prisoners Released in 24 States in 2008 (10-Year Follow-Up).</li>
+ <li><b>Federal Bureau of Prisons</b>, Population Statistics (janvier 2026) ; recensement religieux des détenus fédéraux ; Federal Register, coût annuel d’incarcération (exercice 2024).</li>
+ <li><b>U.S. Immigration and Customs Enforcement</b>, Detention Management (données bimensuelles) ; TRAC Immigration ; Vera Institute, ICE Detention Trends ; CBS News.</li>
+ <li><b>Pew Research Center</b>, Religion in Prisons: A 50-State Survey of Prison Chaplains (2012) ; Religious Landscape Study.</li>
+ <li><b>Vera Institute of Justice</b>, The Price of Prisons (2012 et 2015) ; Overlooked: Women and Jails (2016).</li>
+ <li><b>Institute for Crime & Justice Policy Research</b>, World Prison Brief et World Prison Population List (14e édition).</li>
+ <li><b>Death Penalty Information Center</b>, The Death Penalty in 2025: Year End Report ; Gallup.</li>
+ <li><b>National Registry of Exonerations</b>, rapports annuels 2023 et 2024.</li>
+ <li><b>RAND Corporation</b>, Evaluating the Effectiveness of Correctional Education (2013) ; NCES, PIAAC Prison Study (2014).</li>
+ <li><b>ACLU</b>, Captive Labor: Exploitation of Incarcerated Workers (2022).</li>
+ <li><b>SEC</b> : rapports 10-K et 10-Q de CoreCivic et GEO Group ; Private Equity Stakeholder Project, Private Equity Profits from Incarceration (2023) ; CREW ; Worth Rises.</li>
+ </ol>`)}
+ ${card('Méthode et limites',null,`<ul class="facts"><li>Les totaux du Whole Pie mélangent des dates (fin 2023 pour les prisons d’État, janvier 2026 pour l’ICE et le BOP) : c’est la meilleure photographie possible, pas un instantané parfait.</li><li>Les parts par infraction d’État appliquent la répartition 2022 à la population 2023, comme le fait PPI.</li><li>Les religions sont des <b>estimations</b> : les aumôniers pour les États, un recensement déclaratif pour le fédéral.</li><li>Le niveau d’études repose sur l’enquête nationale de 1997 (BJS, 2003), la seule aussi détaillée, confirmée dans ses grandes lignes par celle de 2016.</li><li>Les taux internationaux ont des dates de référence différentes selon les pays (World Prison Brief).</li><li>Les coûts par détenu Vera datent de 2015 ; ils ont augmenté depuis, comme le montre le fédéral (47 162 $ en 2024).</li></ul>`)}
+</div>
+<div class="card" style="margin-top:16px"><h3>Glossaire</h3><dl class="gloss">
+ ${[['Prison','Établissement d’État ou fédéral pour les personnes condamnées, en général à plus d’un an.'],['Jail','Prison locale (comté, ville) : détention avant procès et peines de moins d’un an.'],['Felony / misdemeanor','Crime passible de plus d’un an / délit mineur passible de moins d’un an.'],['Probation','Peine exécutée en liberté sous conditions, prononcée à la place de la prison.'],['Parole','Libération conditionnelle : sortie anticipée de prison sous surveillance.'],['Violation technique','Manquement aux conditions de supervision (couvre-feu, rendez-vous, dette) sans nouvelle infraction.'],['GED','General Educational Development : examen qui donne l’équivalent du diplôme de lycée.'],['Plea bargain','Négociation de plaider-coupable ; près de 95 % des condamnations en découlent.'],['Felony murder','Règle qui rend coupable de meurtre tout participant à un crime au cours duquel quelqu’un meurt.'],['Three strikes','Lois imposant une très longue peine à la troisième condamnation.'],['BOP, USMS, ICE','Bureau of Prisons (prisons fédérales), U.S. Marshals Service (détention fédérale avant jugement), Immigration and Customs Enforcement (détention migratoire).'],['PIECP','Programme fédéral autorisant des entreprises privées à employer des détenus au salaire minimum.']].map(g=>`<div><dt>${g[0]}</dt><dd>${g[1]}</dd></div>`).join('')}
+</dl></div></section>`;
+
+
+/* ---------- 50 ÉTATS ---------- */
+const GEO={"AL":"M662,438L663,373L661,370L706,366L719,411L726,424L722,433L727,451L679,456L685,467L683,470L677,472L673,473L678,471L673,463L671,471L666,470Z","AK":"M220,533L221,535L223,534L226,538L223,535L223,535L223,537L225,538L226,539L225,540L225,541L224,543L223,540L224,540L224,540L223,540ZM219,542L220,541L219,541L219,541L219,540L220,540L220,540L220,541L220,541L222,540L223,541L222,541L222,541L224,545L226,549L223,547L223,546L221,545L221,544L222,543L221,544L221,542ZM219,543L219,542L220,543L219,544L219,543ZM214,538L215,537L215,536L217,535L218,535L218,537L218,536L220,536L221,537L220,537L220,537L221,537L220,538L221,538L222,540L219,539L219,541L218,541L216,540L216,539ZM175,526L174,526L176,525ZM173,527L173,527L175,527L173,528L174,528ZM169,532L171,528L172,528L171,532ZM168,529L169,528L168,528L170,526L169,530ZM26,568L27,568L27,568L26,569ZM21,569L22,569L24,572L23,572ZM16,564L18,563L19,564L18,565ZM2,553L3,553L4,553L3,554ZM0,547L3,548L4,550L1,549ZM241,554L242,553L242,553L242,554ZM240,553L240,551L241,552L241,553ZM231,546L232,545L233,545L233,546ZM232,554L231,553L232,553ZM229,549L230,548L230,548L230,548L229,547L229,546L231,546L232,548L234,548L237,551L236,550L235,552L236,551L238,552L237,553L238,552L239,553L238,554L239,554L240,556L237,556L238,555L237,555L237,554L236,554L236,553L236,553L235,554L236,554L236,555L234,554L237,557L236,557L234,555L234,553L232,554L234,552L233,551L232,551L232,550L230,551L231,549L231,549ZM225,544L226,543L225,543L226,543L227,544L228,543L226,542L230,541L233,543L229,546L228,545L228,545L228,547L228,547L229,548L228,549L228,549L228,548L228,547L228,547L228,550L227,548L227,547L227,548L227,546ZM45,574L46,574L46,575L45,575ZM40,576L42,574L44,576L41,577ZM37,574L40,575L40,574L41,574L40,575ZM36,572L37,573L38,574L36,575L35,574L36,574ZM148,546L150,546L149,545L152,543L151,543L152,542L152,542L152,544L153,544L153,545L154,544L153,546L151,545L150,547ZM144,558L146,557L146,558L145,558ZM143,559L144,557L144,558ZM143,552L145,549L146,551L146,549L147,549L146,549L147,548L147,548L148,549L148,548L149,548L148,547L150,548L149,547L151,547L150,548L151,549L152,547L153,548L152,550L153,550L153,551L150,551L152,552L149,552L150,552L149,553L151,553L149,554L148,553L146,556L145,556L147,553L145,556ZM119,569L120,568L119,567L121,566L121,567ZM117,565L118,565L118,567L117,567ZM118,541L119,540L120,539L119,541ZM110,568L110,567L110,568L110,568ZM117,503L118,503L118,503L117,503ZM108,572L108,571L109,571ZM98,569L101,566L104,566L105,566L105,566L105,568L106,568L107,569L105,568L100,570ZM95,571L96,570L96,571L95,572ZM93,571L94,571L95,572L94,572ZM96,525L98,526L101,524L103,526L102,527L103,528L100,529ZM84,576L88,575L88,574L88,573L90,574L88,572L89,572L90,572L90,573L92,572L92,572L90,574L92,574L90,575L89,575L89,576L85,576ZM102,485L115,480L117,480L117,480L116,480L117,481L116,483L117,484L122,485L123,483L125,484L123,482L122,483L122,481L120,478L121,478L122,479L122,480L122,481L124,482L122,480L124,478L118,476L117,472L110,466L112,465L113,462L118,463L120,462L121,460L122,457L125,454L128,453L132,450L133,450L134,450L134,450L134,450L132,451L136,450L140,447L142,448L142,449L141,450L141,451L143,450L143,449L143,448L144,449L145,451L145,451L148,450L150,451L150,452L151,452L151,453L150,453L152,453L151,454L158,453L170,456L174,453L180,456L194,525L198,525L201,523L201,525L208,530L209,532L211,530L212,529L212,527L213,526L212,526L215,524L216,524L218,527L225,531L233,538L232,539L234,539L234,541L235,541L236,542L244,543L245,545L245,546L246,549L245,554L244,554L243,552L243,551L244,552L244,551L244,551L242,552L242,548L241,547L240,546L240,545L239,546L241,547L242,551L241,551L241,550L241,550L241,551L239,551L240,551L239,552L240,552L240,552L240,553L239,551L239,551L239,550L239,549L238,548L239,548L238,548L239,547L237,548L238,548L238,549L238,549L237,549L237,549L238,550L236,549L237,548L236,545L237,545L237,545L237,545L236,545L236,546L235,546L236,547L236,548L235,547L234,547L233,546L234,545L234,545L234,546L235,546L235,546L234,545L234,544L235,544L234,543L233,543L233,542L230,541L231,541L231,540L230,541L228,540L229,539L228,539L227,537L226,537L229,537L226,536L226,535L226,536L225,535L225,535L225,534L224,535L223,532L223,534L221,534L219,530L219,531L218,530L216,526L216,527L216,527L216,528L217,529L216,528L216,528L215,528L217,529L220,535L219,535L217,533L218,534L216,534L215,533L216,533L214,530L214,532L210,531L211,531L211,532L211,532L213,532L214,533L213,533L214,533L216,535L213,535L213,536L209,534L206,532L199,530L200,528L199,527L200,526L197,529L195,529L193,528L193,528L193,528L193,528L193,527L193,526L194,526L193,526L192,526L193,527L192,528L188,527L182,529L183,529L180,528L180,527L179,527L180,526L178,527L175,526L177,525L174,525L175,524L173,525L175,524L173,524L172,523L173,523L172,522L174,522L174,522L173,522L171,523L171,522L171,523L170,524L170,523L169,524L169,522L169,524L169,524L169,525L167,525L169,521L168,521L167,523L167,522L166,523L167,523L167,525L166,525L165,525L166,525L165,526L165,526L166,525L166,526L167,525L167,527L166,527L165,528L168,527L168,528L167,530L168,529L168,531L167,531L167,531L168,530L167,530L167,531L164,531L164,531L164,532L163,530L163,531L162,533L163,533L163,533L162,533L162,532L161,532L162,533L162,534L161,533L161,534L161,534L161,535L160,536L160,536L160,536L160,536L160,533L158,538L157,537L155,538L154,537L154,537L154,536L156,536L157,533L156,535L154,533L156,529L155,526L159,524L160,525L161,524L164,525L160,523L162,520L162,520L160,522L158,522L155,524L154,525L154,526L154,526L152,528L152,529L152,530L150,530L151,531L151,532L149,533L150,533L149,535L148,533L148,534L147,535L148,535L147,535L147,536L145,537L146,537L145,538L149,540L145,545L146,545L145,546L144,545L144,547L142,547L141,549L140,548L139,550L138,550L138,551L136,552L137,552L137,553L135,554L135,554L133,556L132,555L131,556L132,557L130,556L129,557L130,558L128,558L127,559L128,559L128,559L128,560L129,560L127,560L127,561L127,561L127,560L127,560L126,562L126,561L123,563L123,562L122,564L122,564L122,562L121,562L119,563L118,564L118,563L117,564L118,565L117,564L115,565L114,565L115,563L114,563L112,566L112,566L112,567L110,567L109,565L109,565L109,567L107,566L107,567L106,568L106,567L106,566L106,566L106,566L108,565L107,565L108,566L112,561L113,561L116,560L116,560L115,560L117,560L116,561L118,563L117,561L120,562L118,561L120,559L126,555L127,555L127,554L128,552L131,550L131,550L131,549L132,546L133,545L132,544L134,541L135,539L130,542L128,540L128,539L127,541L128,542L127,543L126,543L124,539L123,540L122,539L122,538L116,541L114,540L116,539L115,535L117,534L115,529L114,530L109,530L107,526L105,525L106,524L104,524L106,522L105,521L106,520L104,520L104,518L103,517L104,517L103,516L103,516L103,515L103,515L104,515L103,514L105,514L105,512L109,509L109,507L111,505L115,507L117,506L118,503L119,504L119,504L122,504L124,502L123,499L122,497L123,497L124,495L123,493L122,495L120,495L117,497L117,495L116,495L117,496L116,497L115,495L110,495L107,494L106,492L107,491L105,489L106,488L106,488L105,489L106,489L107,489L107,488ZM78,578L81,575L82,576L82,574L85,574ZM74,577L75,577L75,577L75,578ZM70,578L70,577L71,578L71,578ZM87,498L88,496L90,498L92,497L93,499L97,501L96,502L94,502L93,503L91,500L88,499ZM61,578L62,577L63,578L61,578ZM77,518L77,517L79,520L78,520ZM54,577L57,578L59,579L57,579ZM49,576L54,576L53,575L54,575L55,576L54,576L54,577L53,577Z","AZ":"M189,396L197,391L194,380L199,375L200,367L208,362L202,347L205,321L215,324L221,304L305,318L288,439L251,433Z","AR":"M549,343L625,341L627,345L622,352L633,351L635,353L630,357L631,361L629,361L626,365L629,370L625,372L625,376L622,376L621,386L615,390L617,392L612,396L614,400L611,401L614,402L610,403L611,408L613,407L612,417L560,418L560,407L552,405L553,367Z","CA":"M108,344L111,344L113,346L115,346L109,346ZM102,343L106,344L106,346L104,346ZM72,190L81,179L85,159L150,177L133,240L203,344L205,357L208,362L202,364L199,375L194,378L193,385L197,388L195,392L149,387L146,370L137,358L132,357L132,350L122,346L116,338L98,330L102,318L87,288L92,275L84,267L87,254L87,258L92,263L88,251L91,249L88,247L86,253L79,247L81,242L73,225L77,205Z","CO":"M305,318L317,232L428,243L423,330Z","CT":"M879,202L883,199L878,181L904,175L907,190L891,195L881,204Z","DE":"M854,240L855,236L859,236L858,243L865,254L869,256L871,263L861,265Z","GA":"M706,366L750,361L746,368L755,372L762,382L784,399L793,417L799,418L793,426L794,436L790,443L792,448L783,447L783,457L780,458L779,453L729,456L724,447L722,433L726,424L719,411Z","HI":"M343,560L348,555L348,549L361,555L369,565L351,578L346,574ZM330,535L333,533L345,539L336,542ZM323,535L326,535L328,537L325,539ZM318,531L319,529L330,530L327,532ZM299,521L305,518L311,527L302,527ZM268,511L272,507L278,509L275,515Z","ID":"M203,137L221,114L216,106L215,96L228,41L242,44L237,66L241,72L241,77L239,78L244,83L250,96L256,98L251,108L252,114L249,116L248,121L251,123L258,120L262,138L266,141L269,151L278,148L291,151L293,146L297,153L288,206L195,188L204,149L207,143Z","IL":"M598,262L600,254L606,246L605,235L614,232L618,226L618,219L610,211L654,208L654,213L660,224L664,275L663,280L666,289L659,300L657,313L659,317L652,319L653,326L644,323L642,329L638,328L634,314L620,303L623,290L614,289L612,281L601,272Z","IN":"M658,308L660,302L659,300L666,289L663,280L664,275L660,225L703,219L710,283L700,286L701,290L692,303L686,299L682,307L679,304L675,309L666,305L666,308L661,307L660,310Z","IA":"M515,209L519,200L516,192L600,190L602,195L601,200L603,206L608,208L618,222L616,231L605,235L604,239L607,245L604,251L600,254L600,258L594,253L529,255L523,225Z","KS":"M427,265L543,270L544,273L540,278L549,286L549,333L423,330Z","MD":"M796,260L794,250L853,239L861,265L871,264L870,273L860,277L859,268L857,271L857,268L856,268L856,271L853,270L850,264L855,264L851,261L849,263L849,261L850,259L851,260L852,261L852,260L850,257L848,259L848,257L851,255L848,252L851,242L847,249L847,248L846,248L845,252L843,251L847,256L845,262L850,269L849,271L850,271L852,276L839,270L836,272L839,260L829,258L821,248L815,247L810,252L806,250Z","MN":"M508,75L538,74L537,66L540,66L542,67L545,80L557,84L569,82L574,83L573,85L576,86L578,90L582,87L590,93L599,88L601,92L620,92L602,102L583,120L584,122L580,123L581,136L572,144L572,147L576,149L574,164L596,180L600,190L518,192L519,153L513,147L517,142L517,137L514,125L513,104L509,92L510,81Z","MS":"M605,455L608,452L609,448L607,447L616,435L613,434L616,434L618,430L613,428L616,428L613,425L613,418L611,419L613,407L611,408L610,403L613,402L611,401L614,400L612,396L617,392L615,390L621,386L622,376L625,376L625,373L661,371L663,373L662,438L666,471L649,472L644,476L639,466L640,459L605,461Z","MT":"M237,66L242,44L411,70L404,155L298,142L297,153L293,146L291,151L278,148L269,151L266,141L262,138L258,120L251,123L248,121L249,116L252,114L251,108L256,98L250,96L244,83L239,78L241,77Z","NV":"M133,240L150,177L242,198L218,321L215,324L205,321L203,344Z","NJ":"M858,240L868,226L859,218L860,212L858,210L862,201L877,205L874,217L879,217L880,232L873,251L870,253L871,247L866,248Z","NM":"M288,439L305,318L407,328L398,436L334,430L335,435L304,431L303,441Z","ND":"M405,134L411,70L508,74L510,81L509,92L513,104L514,125L517,140Z","OK":"M406,339L407,328L549,333L553,367L552,405L539,398L519,404L508,399L506,404L504,399L491,400L488,394L482,396L469,392L466,387L461,388L455,384L457,342Z","PA":"M777,253L770,205L780,197L781,203L850,189L855,192L858,199L863,200L858,210L860,212L858,216L868,226L854,239Z","SC":"M746,368L749,361L761,354L785,352L790,359L809,356L833,373L826,378L821,393L804,407L805,411L800,412L801,414L797,418L793,417L784,399L762,382L755,372Z","SD":"M400,198L405,134L517,140L513,147L519,153L518,192L516,193L519,200L515,209L518,214L506,206L494,208L486,202Z","UT":"M221,304L242,198L288,206L285,227L317,232L305,318Z","VT":"M871,149L869,131L865,119L893,112L892,118L894,123L888,128L890,133L887,145L888,161L891,163L878,166L875,149Z","WV":"M748,292L748,286L754,281L753,277L755,272L760,273L760,266L772,256L774,241L773,234L774,234L777,253L794,250L796,261L806,250L811,252L816,247L821,248L824,252L823,258L813,252L814,259L808,269L805,268L802,278L796,275L789,300L779,306L764,309Z","WY":"M285,227L298,142L404,155L396,241Z","FL":"M805,579L812,573L815,575L811,576ZM684,463L679,456L727,451L730,457L779,453L780,458L783,457L783,447L793,448L799,467L815,491L817,501L832,527L834,549L831,552L831,562L828,567L827,568L829,561L817,565L812,554L802,550L798,541L791,535L793,536L793,530L790,535L778,519L784,512L778,508L780,513L778,517L775,512L775,489L772,485L768,486L754,471L744,468L740,471L741,473L724,480L722,474L707,467L682,471Z","KY":"M638,339L642,336L642,325L653,326L652,319L659,317L657,313L661,307L666,309L666,305L675,309L679,304L682,307L686,299L692,303L701,290L700,286L710,283L708,277L710,275L715,275L720,282L729,284L742,280L748,285L751,296L761,304L744,323L735,328L660,334L661,338Z","LA":"M599,491L602,490L606,491L604,493ZM561,441L560,418L613,417L613,425L615,425L616,428L613,428L618,430L613,434L616,435L610,442L611,444L607,447L609,448L605,455L605,461L640,459L639,466L645,476L640,481L643,483L646,478L649,482L651,479L648,483L650,485L643,490L653,493L655,499L649,503L651,497L641,495L645,494L640,491L634,500L629,495L622,501L614,498L617,496L609,492L607,488L602,488L603,486L596,488L600,491L594,493L577,488L566,490L564,488L568,482L567,472L571,461Z","ME":"M897,104L901,105L900,101L903,101L901,99L906,89L903,83L905,71L911,52L917,57L926,50L934,54L942,83L948,83L949,90L955,91L960,97L953,105L949,106L947,112L944,109L942,111L945,112L944,115L941,110L941,116L936,116L935,112L935,111L933,114L933,124L929,125L927,130L926,127L925,133L921,133L922,130L919,133L920,137L915,149L909,144Z","MA":"M924,186L926,182L929,183ZM878,181L878,166L908,159L913,154L919,158L914,167L919,166L927,176L933,173L928,168L930,168L935,174L935,178L934,175L925,181L923,177L919,184L911,174Z","MI":"M671,223L679,206L678,196L672,182L671,173L676,154L683,147L682,154L685,151L684,156L686,145L692,142L689,139L690,134L702,135L715,141L718,146L715,147L719,153L719,161L711,175L716,178L719,170L725,166L729,167L737,188L736,196L734,199L734,195L732,196L724,217ZM623,95L632,88L635,87L628,94ZM608,124L629,113L639,103L645,102L646,103L638,111L636,118L641,113L639,116L646,114L653,122L664,123L671,116L688,112L688,119L701,116L702,122L700,123L706,127L694,127L693,132L682,128L670,132L666,140L664,138L667,134L661,139L660,134L653,152L650,151L651,146L648,147L649,140L643,138L643,135L613,128ZM706,127L708,124L712,126L711,128Z","MO":"M529,255L594,253L600,258L598,263L601,272L612,281L614,289L623,290L620,303L634,314L638,328L643,329L642,336L637,341L635,338L636,345L633,346L635,348L634,351L622,352L627,345L625,341L549,343L549,286L540,278L544,273L543,270L535,267Z","NE":"M396,241L400,198L486,202L494,208L505,206L519,214L524,229L524,235L527,239L527,252L537,268L427,265L428,243Z","NH":"M888,161L888,129L894,123L892,107L897,104L909,144L915,150L908,159L891,163Z","NY":"M780,197L792,183L787,174L822,166L830,159L827,153L830,150L827,148L827,151L825,146L838,129L844,124L865,119L871,149L875,149L878,166L878,181L883,199L879,202L881,205L879,208L902,195L905,198L909,196L892,209L879,215L877,213L877,205L858,199L855,192L850,189L781,203Z","NC":"M728,363L728,359L732,357L735,351L749,344L754,337L756,339L764,334L769,329L769,323L867,306L876,321L868,309L864,307L870,316L862,313L865,316L858,316L861,317L857,320L854,315L855,322L866,319L868,326L870,318L873,325L867,333L861,333L861,329L858,331L860,333L851,332L862,335L858,343L853,340L856,343L859,344L863,340L864,342L865,340L867,341L864,347L854,350L847,358L843,371L833,373L809,356L790,359L785,352L761,354L749,361Z","OH":"M709,276L703,221L724,217L737,220L737,221L733,221L732,222L732,223L741,223L752,218L770,205L774,234L772,235L774,241L772,254L767,262L760,266L760,273L755,272L752,285L748,286L742,280L736,284L728,284L720,282L715,275Z","OR":"M85,140L98,120L110,92L115,72L127,77L130,83L129,90L135,94L143,92L164,98L186,97L216,104L221,114L203,137L207,143L204,149L195,188L85,159Z","RI":"M914,185L915,182L917,180L918,184L916,181ZM907,191L904,176L911,174L915,181L912,179L913,188Z","TN":"M625,373L629,370L626,365L631,361L630,357L635,353L633,346L636,345L636,340L661,338L660,334L769,323L769,329L764,334L756,339L754,337L749,344L735,351L732,357L728,359L729,364Z","TX":"M499,551L499,540L504,530L505,530L499,544L501,557ZM361,463L334,430L398,436L405,339L457,342L455,384L461,388L466,387L469,392L482,396L488,394L491,400L504,399L506,404L508,399L519,404L539,398L554,407L560,407L561,441L571,461L567,472L568,482L564,488L566,490L548,497L554,493L548,494L549,488L544,490L547,497L537,508L519,518L506,530L509,524L518,518L513,520L512,518L510,517L511,522L502,525L506,524L505,528L497,529L502,533L498,541L493,540L492,542L498,542L498,556L500,567L503,568L503,570L498,573L493,568L483,568L466,560L459,546L458,535L444,519L438,501L425,486L408,483L401,485L397,496L389,501L367,485Z","VA":"M862,295L862,277L870,273L864,293ZM735,328L744,323L761,304L767,310L789,300L796,275L802,278L805,268L808,269L814,259L813,252L823,258L827,253L828,257L837,261L835,272L839,271L841,275L854,279L854,285L851,285L849,283L844,279L843,279L851,286L855,286L856,292L854,290L855,293L853,294L857,298L851,295L846,296L850,295L855,301L863,299L867,306Z","WA":"M144,37L148,34L148,36L145,37L149,42L148,45ZM117,30L119,26L127,33L140,36L142,41L142,39L144,39L145,44L143,44L141,48L141,45L134,53L136,54L138,53L134,53L146,44L146,48L145,47L142,57L140,55L138,58L138,57L139,54L139,53L137,56L137,59L139,60L145,57L146,50L151,43L150,38L148,39L149,42L147,40L148,37L150,37L149,33L147,33L151,31L151,27L149,27L149,21L228,41L215,96L216,104L186,97L152,97L147,93L136,94L130,91L129,79L114,71L117,64L116,69L117,70L120,63L117,62L117,58L122,58L118,55L117,57L118,40Z","WI":"M572,146L575,140L581,136L580,123L601,116L603,117L600,124L602,121L613,128L642,135L648,139L648,147L651,146L650,151L653,153L649,156L647,165L653,157L656,158L658,150L661,147L653,178L651,192L654,208L610,211L603,207L601,200L602,195L600,193L598,183L574,164L576,149Z"};
+const GEOC={"AL":[690,416],"AK":[151,502],"AZ":[251,369],"AR":[588,377],"CA":[132,280],"CO":[368,281],"CT":[892,187],"DE":[862,253],"GA":[750,412],"HI":[340,551],"ID":[242,146],"IL":[636,263],"IN":[684,262],"IA":[565,222],"KS":[486,300],"MD":[842,256],"MN":[551,132],"MS":[639,421],"MT":[326,101],"NV":[189,245],"NJ":[869,225],"NM":[348,379],"ND":[460,105],"OK":[499,363],"PA":[817,221],"SC":[791,378],"SD":[461,170],"UT":[269,261],"VT":[880,136],"WV":[780,276],"WY":[346,191],"FL":[780,495],"KY":[706,311],"LA":[599,460],"ME":[923,96],"MA":[904,170],"MI":[688,166],"MO":[585,302],"NE":[465,233],"NH":[898,140],"NY":[844,170],"NC":[812,339],"OH":[739,247],"OR":[152,134],"RI":[909,182],"TN":[693,348],"TX":[465,451],"VA":[814,294],"WA":[172,63],"WI":[617,165]};
+
+const METRICS={
+ rate:{l:'Taux pour 100 000',f:s=>s[3],fmt:v=>v+' / 100 000',col:v=>v>=500?'#7a1e18':v>=400?'#b8322a':v>=300?'#d96a5f':v>=200?'#5b8fd8':v>=150?'#9fbbe6':'#cfdcf1',scale:[['#cfdcf1','<150'],['#9fbbe6','150'],['#5b8fd8','200'],['#d96a5f','300'],['#b8322a','400'],['#7a1e18','500 et +']]},
+ tot:{l:'Détenus (nombre)',f:s=>s[2],fmt:v=>fmt(v)+' détenus',col:v=>v>=80000?'#0f2a4a':v>=40000?'#1f5fbf':v>=20000?'#5b8fd8':v>=10000?'#9fbbe6':'#cfdcf1',scale:[['#cfdcf1','<10 k'],['#9fbbe6','10 k'],['#5b8fd8','20 k'],['#1f5fbf','40 k'],['#0f2a4a','80 k et +']]},
+ pct19:{l:'Rapport à 2019',f:s=>s[5],fmt:v=>v+' % du niveau de 2019',col:v=>v>=100?'#b8322a':v>=94?'#d96a5f':v>=88?'#e9b4ae':v>=80?'#9fbbe6':'#5b8fd8',scale:[['#5b8fd8','<80 %'],['#9fbbe6','80'],['#e9b4ae','88'],['#d96a5f','94'],['#b8322a','100 % et +']]},
+ priv:{l:'Part en privé',f:s=>s[4]===null?null:+(s[4]/s[2]*100).toFixed(1),fmt:v=>v===null?'non publié':v.toLocaleString('fr-FR')+' % en privé',col:v=>v===null?'#d8d4ca':v>=25?'#7a1e18':v>=15?'#b8322a':v>=8?'#d96a5f':v>0?'#e9b4ae':'#cfdcf1',scale:[['#cfdcf1','0 %'],['#e9b4ae','>0'],['#d96a5f','8'],['#b8322a','15'],['#7a1e18','25 % et +'],['#d8d4ca','n.d.']]}
+};
+const SMALL=new Set(['CT','RI','DE','MA','NJ','NH','VT','MD','HI']);
+function geoMap(m='rate'){const M=METRICS[m];let s=`<svg class="chart" id="geo" viewBox="0 0 960 600">`;
+ ST.forEach(st=>{const v=M.f(st);s+=`<path class="gs" data-ab="${st[0]}" d="${GEO[st[0]]}" fill="${M.col(v)}" stroke="var(--card)" stroke-width="1.2" data-tip="<b>${st[1]}</b><span>${M.fmt(v)}<br>${fmt(st[2])} détenus · ${st[3]} / 100 000 · ${st[5]} % de 2019 · ${st[4]===null?'privé n.d.':fmt(st[4])+' en privé'}</span>"/>`;});
+ ST.forEach(st=>{if(SMALL.has(st[0]))return;const c=GEOC[st[0]];s+=`<text x="${c[0]}" y="${c[1]+4}" text-anchor="middle" pointer-events="none" style="fill:#fff;font-family:var(--mono);font-size:11px;font-weight:600;paint-order:stroke;stroke:rgba(0,0,0,.25);stroke-width:2px">${st[0]}</text>`;});
+ return s+'</svg>'+`<div class="scale"><span>${M.l} :</span>${M.scale.map(x=>`<i style="background:${x[0]}"></i>${x[1]}`).join('')}</div>`;}
+
+const ST=[
+['AL','Alabama',27181,394,221,96,8.6],['AK','Alaska',4478,202,330,100.1,-3.5],['AZ','Arizona',34473,448,9842,81,1.6],['AR','Arkansas',18503,596,0,104,8.7],['CA','Californie',95962,246,0,78,-5.4],['CO','Colorado',17459,290,2745,88,10],['CT','Connecticut',11099,183,538,87,12.2],['DE','Delaware',4867,275,null,86,1.2],['FL','Floride',87207,382,11637,91,8.4],['GA','Géorgie',50425,449,7658,92,7.3],['HI','Hawaï',3942,165,876,75,-3.9],['ID','Idaho',9829,490,598,104,10.4],['IL','Illinois',29828,238,352,78,4.8],['IN','Indiana',25088,351,3901,92,1.5],['IA','Iowa',8831,274,0,95,3.1],['KS','Kansas',9125,305,0,90,7.1],['KY','Kentucky',19175,423,834,83,3.3],['LA','Louisiane',28186,617,0,89,8.1],['ME','Maine',1873,119,null,86,18.8],['MD','Maryland',16236,261,0,87,7.3],['MA','Massachusetts',6002,96,null,73,-2.4],['MI','Michigan',32986,328,null,87,2.5],['MN','Minnesota',8725,152,0,87,9],['MS','Mississippi',19526,652,2237,101,12.7],['MO','Missouri',24223,385,0,93,3.4],['MT','Montana',4985,438,2427,106,15.6],['NE','Nebraska',5931,295,0,104,5.9],['NV','Nevada',10463,327,0,81,2.6],['NH','New Hampshire',2115,151,null,79,-0.6],['NJ','New Jersey',11675,125,994,63,-6.6],['NM','Nouveau-Mexique',5586,259,1633,83,8.4],['NY','New York',32583,167,0,75,7.4],['NC','Caroline du Nord',30685,275,27,90,5.8],['ND','Dakota du Nord',1899,240,273,106,12.4],['OH','Ohio',46530,394,6466,92,3.3],['OK','Oklahoma',22283,545,2741,89,-0.5],['OR','Oregon',12316,291,0,82,-6.7],['PA','Pennsylvanie',38860,300,419,85,4.5],['RI','Rhode Island',2519,122,null,92,12.6],['SC','Caroline du Sud',16453,299,85,88,4.4],['SD','Dakota du Sud',3764,405,42,99,12.3],['TN','Tennessee',24408,341,6640,93,11],['TX','Texas',149264,477,9821,94,11.6],['UT','Utah',6402,186,0,96,8.4],['VT','Vermont',1334,124,126,83,3.7],['VA','Virginie',27442,314,1248,76,-9.6],['WA','Washington',14441,181,0,75,5.6],['WV','Virginie-Occidentale',5800,328,0,85,-0.8],['WI','Wisconsin',22418,346,null,94,11],['WY','Wyoming',2212,378,549,89,4.2]
+];
+// grille cartographique (ligne, colonne) : disposition classique en tuiles
+const GRID={AK:[0,0],ME:[0,10],WI:[1,5],VT:[1,9],NH:[1,10],WA:[2,0],ID:[2,1],MT:[2,2],ND:[2,3],MN:[2,4],IL:[2,5],MI:[2,6],NY:[2,8],MA:[2,9],RI:[2,10],OR:[3,0],NV:[3,1],WY:[3,2],SD:[3,3],IA:[3,4],IN:[3,5],OH:[3,6],PA:[3,7],NJ:[3,8],CT:[3,9],CA:[4,0],UT:[4,1],CO:[4,2],NE:[4,3],MO:[4,4],KY:[4,5],WV:[4,6],VA:[4,7],MD:[4,8],DE:[4,9],AZ:[5,1],NM:[5,2],KS:[5,3],AR:[5,4],TN:[5,5],NC:[5,6],SC:[5,7],OK:[6,3],LA:[6,4],MS:[6,5],AL:[6,6],GA:[6,7],HI:[7,0],TX:[7,3],FL:[7,8]};
+const stColor=r=>r>=500?'#7a1e18':r>=400?'#b8322a':r>=300?'#d96a5f':r>=200?'#5b8fd8':r>=150?'#9fbbe6':'#cfdcf1';
+function stateMap(){
+ const R=30, w=Math.sqrt(3)*R, h=1.5*R; let s=`<svg class="chart" id="map" viewBox="0 0 ${w*11.6} ${h*8+R}" style="max-width:760px">`;
+ ST.forEach(st=>{const [r,c]=GRID[st[0]]; const cx=w*(c+0.5)+(r%2?w/2:0)+w*0.3, cy=h*r+R+4; const pts=[0,1,2,3,4,5].map(i=>{const a=Math.PI/180*(60*i-30);return (cx+R*0.96*Math.cos(a)).toFixed(1)+','+(cy+R*0.96*Math.sin(a)).toFixed(1);}).join(' ');
+  s+=`<g class="hx" data-ab="${st[0]}" data-tip="<b>${st[1]}</b><span>${fmt(st[2])} détenus · ${st[3]} pour 100 000 · ${st[5]} % du niveau de 2019</span>"><polygon points="${pts}" fill="${stColor(st[3])}" stroke="var(--card)" stroke-width="2"/><text x="${cx}" y="${cy-2}" text-anchor="middle" style="fill:#fff;font-family:var(--mono);font-weight:600;font-size:13px">${st[0]}</text><text x="${cx}" y="${cy+12}" text-anchor="middle" style="fill:#fff;font-size:10px;opacity:.9">${st[3]}</text></g>`;});
+ s+='</svg>';
+ return s+`<div class="scale"><span>Taux pour 100 000 :</span><i style="background:#cfdcf1"></i>&lt;150<i style="background:#9fbbe6"></i>150<i style="background:#5b8fd8"></i>200<i style="background:#d96a5f"></i>300<i style="background:#b8322a"></i>400<i style="background:#7a1e18"></i>500 et +</div>`;
+}
+function stateBox(ab){
+ const s=ST.find(x=>x[0]===ab); const byRate=[...ST].sort((a,b)=>b[3]-a[3]); const byTot=[...ST].sort((a,b)=>b[2]-a[2]);
+ const rk=byRate.findIndex(x=>x[0]===ab)+1, rt=byTot.findIndex(x=>x[0]===ab)+1; const priv=s[4]===null?'n.d.':s[4]?pct(s[4]/s[2]*100,1):'0 %';
+ const pop2019=Math.round(s[2]/s[5]*100), pop2021=Math.round(s[2]/(1+s[6]/100)); const pr=s[4]===null?null:s[4]/s[2]*100;
+ const bar=(l,v,ref,unit,max)=>`<div class="r"><span>${l}</span><div class="b"><i style="width:${Math.min(100,v/max*100)}%;background:${v>ref?'var(--red)':'var(--blue)'}"></i><em style="left:${Math.min(100,ref/max*100)}%"></em></div><span class="n">${typeof v==='number'?v.toLocaleString('fr-FR'):v}${unit}</span></div>`;
+ const cmp=`<div class="bars2 cmp" style="margin-top:14px">${bar('Taux / 100 000',s[3],360,'',700)}${bar('Part en privé',pr===null?0:+pr.toFixed(1),7,' %',35)}${bar('Niveau de 2019',s[5],87,' %',110)}${bar('Évolution 2021-23',Math.max(0,s[6]),4.8,' %',20)}</div><div style="font-size:11px;color:var(--muted);margin-top:6px">Barre bleue : sous la moyenne nationale ; rouge : au-dessus. Le repère vertical marque la moyenne des États (360 / 100 000 ; 7 % en privé ; 87 % de 2019 ; +4,8 %).</div>`;
+ const sparks=`<div style="margin-top:12px;font-size:12px;color:var(--ink2)"><b style="color:var(--ink)">Trajectoire :</b> ${fmt(pop2019)} détenus fin 2019 → ${fmt(pop2021)} fin 2021 → <b style="color:var(--ink)">${fmt(s[2])}</b> fin 2023.</div>`;
+ return `<h4>${s[1]}</h4><div class="rk">${rk}e taux sur 50 · ${rt}e population carcérale · fin 2023</div><div class="g"><div><b>${fmt(s[2])}</b><span>détenus en prison d’État</span></div><div><b>${s[3]}</b><span>pour 100 000 habitants (moyenne nationale : 360)</span></div><div><b>${priv}</b><span>en établissement privé (${s[4]===null?'non publié':fmt(s[4])+' pers.'})</span></div><div><b>${s[5]}<small style="font-size:12px"> %</small></b><span>de la population carcérale de 2019</span></div><div><b>${s[6]>0?'+':''}${s[6].toLocaleString('fr-FR')}<small style="font-size:12px"> %</small></b><span>évolution 2021 à 2023</span></div><div><b>${money(s[2]*33274)}</b><span>coût annuel estimé (33 274 $ par détenu)</span></div></div>${cmp}${sparks}`;
+}
+function stateTable(){
+ return `<div class="tblwrap"><table class="tbl" id="stTbl"><thead><tr><th data-k="1">État</th><th class="n" data-k="2">Détenus 2023</th><th class="n" data-k="3">Taux / 100 000</th><th class="n" data-k="4">En privé</th><th class="n" data-k="5">2023 vs 2019</th><th class="n" data-k="6">2021 à 2023</th></tr></thead><tbody></tbody></table></div>`;
+}
+function fillTable(k=3,dir=-1){
+ const tb=document.querySelector('#stTbl tbody'); const rows=[...ST].sort((a,b)=>{const x=a[k]??-1,y=b[k]??-1;return typeof x==='string'?x.localeCompare(y)*dir:(x-y)*dir;});
+ tb.innerHTML=rows.map(s=>`<tr><td><b>${s[1]}</b> <span style="color:var(--faint);font-family:var(--mono);font-size:11px">${s[0]}</span></td><td class="n">${fmt(s[2])}</td><td class="n" style="color:${s[3]>=400?'var(--red)':'inherit'}">${s[3]}</td><td class="n">${s[4]===null?'n.d.':fmt(s[4])}</td><td class="n">${s[5]} %</td><td class="n" style="color:${s[6]>0?'var(--red)':'var(--green)'}">${s[6]>0?'+':''}${s[6].toLocaleString('fr-FR')} %</td></tr>`).join('');
+ document.querySelectorAll('#stTbl th').forEach(th=>th.classList.toggle('s',+th.dataset.k===k));
+}
+S.etats=()=>head('etats','04 · LES 50 ÉTATS','Cinquante systèmes, un pays','Chaque État a ses lois, ses juges, ses prisons et son taux. Le Mississippi enferme sept fois plus que le Massachusetts. La carte géographique se lit selon quatre indicateurs (taux, nombre, rapport à 2019, part du privé) ; une vue en hexagones donne à chaque État la même surface pour ne pas écraser les petits États du Nord-Est.',['<b>Mississippi</b> (652), <b>Louisiane</b> (617) et <b>Arkansas</b> (596) ont les taux les plus élevés ; <b>Massachusetts</b> (96) le plus bas.','Le <b>Texas</b> détient à lui seul 149 264 personnes, plus que l’Allemagne, la France et le Royaume-Uni réunis.','Huit États détiennent <b>plus de monde</b> qu’avant la pandémie ; le New Jersey 37 % de moins.'])+`
+<div class="grid g1">
+ ${card('Carte interactive des États-Unis carcéraux','Cliquez sur un État : la carte zoome dessus et sa fiche complète s’affiche à droite. Changez d’indicateur avec les boutons. Sur téléphone, la fiche s’affiche sous la carte.',`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px" id="mapCtl"><span class="seg" data-m="rate">Taux / 100 000</span><span class="seg" data-m="tot">Nombre de détenus</span><span class="seg" data-m="pct19">Rapport à 2019</span><span class="seg" data-m="priv">Part en privé</span><span style="flex:1"></span><span class="seg v" data-v="geo">Carte</span><span class="seg v" data-v="hex">Hexagones</span><span class="seg" id="mapReset">⟲ Vue entière</span></div><div class="maplay"><div id="mapHost">${geoMap('rate')}</div><div class="stbox" id="stPanel"><select id="stSel">${[...ST].sort((a,b)=>a[1].localeCompare(b[1])).map(s=>`<option value="${s[0]}" ${s[0]==='TX'?'selected':''}>${s[1]}</option>`).join('')}</select><div id="stBox">${stateBox('TX')}</div></div></div>`,'BJS, Prisoners in 2023, tables 2, 7 et 14 ; Prison Policy Initiative pour les évolutions 2019 à 2023.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Les dix plus grandes populations carcérales d’État','Détenus sous juridiction de l’État, fin 2023.',hbars([...ST].sort((a,b)=>b[2]-a[2]).slice(0,10).map((s,i)=>({k:s[1],v:s[2],c:i<3?C.navy:C.amber})),{lw:150}),'BJS, Prisoners in 2023, table 2. Les quatre premiers (Texas, Californie, Floride, Géorgie) totalisent 383 000 détenus, 35 % du total des États.')}
+ ${card('Les dix taux les plus élevés et les cinq plus bas','Pour 100 000 habitants, fin 2023.',hbars([...[...ST].sort((a,b)=>b[3]-a[3]).slice(0,10).map(s=>({k:s[1],v:s[3],c:C.red})),...[...ST].sort((a,b)=>a[3]-b[3]).slice(0,5).reverse().map(s=>({k:s[1],v:s[3],c:C.steel}))],{lw:150,rh:26}),'BJS, Prisoners in 2023, table 7. Le Sud concentre les taux élevés : les dix premiers sont tous au sud ou dans l’Ouest intérieur.')}
+</div>
+<div class="grid g2" style="margin-top:16px">
+ ${card('Qui a refermé la parenthèse de la pandémie','Population carcérale de 2023 en pourcentage de celle de 2019. Au-dessus de 100 : plus de détenus qu’avant le Covid.',hbars([...ST].sort((a,b)=>b[5]-a[5]).filter((s,i)=>i<8||i>=42).map(s=>({k:s[1],v:s[5],c:s[5]>=100?C.red:C.steel})),{lw:150,rh:26,unit:' %',max:110}),'Prison Policy Initiative, Whole Pie 2025, d’après BJS.')}
+ ${card('Le privé, État par État','Part des détenus de l’État placés dans un établissement privé, fin 2023.',hbars([...ST].filter(s=>s[4]).map(s=>({k:s[1],v:+(s[4]/s[2]*100).toFixed(1)})).sort((a,b)=>b.v-a.v).slice(0,10).map((s,i)=>({...s,c:C.amber})),{lw:150,rh:26,fmtV:i=>i.v.toLocaleString('fr-FR')+' %',fmtTip:i=>pct(i.v,1)})+`<p class="txt" style="margin-top:8px">Au total, <b>75 260</b> détenus d’État sont dans le privé (7 %) et <b>64 925</b> dormaient dans une jail de comté louée par l’État. Vingt États n’utilisent aucune prison privée.</p>`,'BJS, Prisoners in 2023, table 14.')}
+</div>
+<div class="card" style="margin-top:16px"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h3>Tableau des 50 États</h3><p class="sub">Cliquez sur un en-tête pour trier.</p></div><button class="btn" id="csvBtn">⤓ Télécharger en CSV</button></div>${stateTable()}<div class="src">Source : BJS, Prisoners in 2023 ; Prison Policy Initiative. n.d. : non publié par l’État.</div></div>
+</section>`;
+
+/* ---------- RENDU ---------- */
+const app=document.getElementById('app');
+app.innerHTML=PARTS.map(pt=>`<div class="partband">${pt[0]}</div>`+pt[1].map(s=>S[s[0]]()).join('')).join('');
+document.getElementById('tabs').innerHTML=SECTIONS.map(s=>`<a href="#${s[0]}">${s[1]}</a>`).join('');
+document.getElementById('toc').innerHTML=PARTS.map(pt=>`<div class="part">${pt[0]}</div>`+pt[1].map(s=>`<a href="#${s[0]}" data-id="${s[0]}"><span class="n">${String(order_idx(s[0])).padStart(2,'0')}</span>${s[1]}</a>`).join('')).join('')+`<div class="live"><div class="t"><i></i>Depuis votre arrivée</div><b id="liveCost">0 $</b><span>dépensés par le système pénal américain (445 Md$ par an)</span><b id="liveJail" style="margin-top:8px">0</b><span>passages en jail (7,6 millions par an)</span></div>`;
+function order_idx(id){return SECTIONS.findIndex(s=>s[0]===id)+1;}
+bindTips(app);
+/* live counters */
+(function(){const t0=Date.now();setInterval(()=>{const s=(Date.now()-t0)/1000;document.getElementById('liveCost').textContent=fmt(s*445e9/365/86400)+' $';document.getElementById('liveJail').textContent=fmt(s*7.6e6/365/86400);},250);})();
+/* state explorer */
+(function(){const sel=document.getElementById('stSel'),box=document.getElementById('stBox');const pick=ab=>{sel.value=ab;box.innerHTML=stateBox(ab);document.querySelectorAll('#mapHost [data-ab]').forEach(e=>e.classList.toggle('sel',e.dataset.ab===ab));};sel.addEventListener('change',()=>pick(sel.value));
+ const host=document.getElementById('mapHost');let curM='rate',curV='geo';const cur=()=>sel.value;
+ let zoomed=null;const FULL=[0,0,960,600];
+ const setVB=(svg,to)=>{const from=(svg.getAttribute('viewBox')||'0 0 960 600').split(' ').map(Number);const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);svg.setAttribute('viewBox',from.map((f,i)=>f+(to[i]-f)*e).join(' '));if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);};
+ const zoomTo=ab=>{const svg=host.querySelector('#geo');if(!svg)return;const el=svg.querySelector(`.gs[data-ab=${ab}]`);if(!el)return;const b=el.getBBox();const pad=Math.max(b.width,b.height)*0.6+30;const w=Math.max(b.width,b.height)+pad*2;const cx=b.x+b.width/2,cy=b.y+b.height/2;setVB(svg,[cx-w/2,cy-w/2*0.625,w,w*0.625]);zoomed=ab;svg.querySelectorAll('text').forEach(t=>t.style.fontSize=(11*Math.min(3,w?960/w:1)/Math.min(3,960/w)*1)+'px');};
+ const draw=()=>{host.innerHTML=curV==='geo'?geoMap(curM):stateMap();bindTips(host);host.querySelectorAll('[data-ab]').forEach(e=>e.addEventListener('click',()=>{pick(e.dataset.ab);if(curV==='geo')zoomTo(e.dataset.ab);}));document.querySelectorAll('#mapCtl .seg').forEach(x=>x.classList.toggle('on',x.dataset.m===curM||x.dataset.v===curV));pick(cur());if(zoomed&&curV==='geo')zoomTo(zoomed);};
+ document.getElementById('mapReset').addEventListener('click',()=>{const svg=host.querySelector('#geo');zoomed=null;if(svg)setVB(svg,FULL);});
+ sel.addEventListener('change',()=>{if(curV==='geo')zoomTo(sel.value);});
+ document.querySelectorAll('#mapCtl .seg').forEach(x=>x.addEventListener('click',()=>{if(x.dataset.m)curM=x.dataset.m;if(x.dataset.v)curV=x.dataset.v;draw();}));draw();pick('TX');
+ let k=3,dir=-1;fillTable(k,dir);document.getElementById('csvBtn').onclick=()=>{const csv='Code;Etat;Detenus_2023;Taux_100k;En_prive;Pct_2019;Evol_2021_2023\n'+ST.map(s=>[s[0],s[1],s[2],s[3],s[4]??'',s[5],s[6]].join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='prisons-etats-2023.csv';a.click();};document.querySelectorAll('#stTbl th').forEach(th=>th.addEventListener('click',()=>{const nk=+th.dataset.k;dir=nk===k?-dir:(nk===1?1:-1);k=nk;fillTable(k,dir);}));})();
+
+/* pictogram */
+(function(){const el=document.getElementById('picto');const tot=PIE.reduce((a,b)=>a+b.v,0);let html='',i=0;const counts=PIE.map(p=>({p,n:Math.round(p.v/tot*100)}));let sum=counts.reduce((a,b)=>a+b.n,0);counts[0].n+=100-sum;
+counts.forEach(c=>{for(let j=0;j<c.n;j++){html+=`<i style="background:${c.p.c};animation-delay:${i*12}ms" data-tip="<b>${c.p.k}</b><span>${fmt(c.p.v)} personnes</span>"></i>`;i++;}});
+el.innerHTML=html;document.getElementById('pictoLeg').innerHTML=counts.filter(c=>c.n>0).map(c=>`<span><i style="background:${c.p.c}"></i>${c.p.k} ${c.n}</span>`).join('');bindTips(el);})();
+
+/* offence detail buttons */
+(function(){const d=document.getElementById('offDetail');d.innerHTML=STATE_OFF.filter(o=>o.sub.length).map((o,i)=>`<button class="btn" data-i="${i}" style="margin:4px 6px 0 0;font-size:12px">${o.k} ${pct(o.v/1098000*100)}</button>`).join('');})();
+
+/* animations on reveal */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target;el.classList.add('in');el.querySelectorAll('rect.bar').forEach(r=>r.setAttribute('width',r.dataset.w));el.querySelectorAll('rect.barv').forEach(r=>{r.setAttribute('height',r.dataset.h);r.setAttribute('y',r.dataset.y);});el.querySelectorAll('.bars2 i').forEach(b=>b.style.width=b.dataset.w);io.unobserve(el);}});},{threshold:.12});
+document.querySelectorAll('.card,.report').forEach(c=>{c.classList.add('reveal');io.observe(c);});
+document.querySelectorAll('rect.bar,rect.barv').forEach(r=>r.style.transition='all .9s cubic-bezier(.2,.8,.2,1)');
+
+/* hero count */
+(function(){const el=document.getElementById('heroCount'),to=+el.dataset.to,t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/1800),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e);if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);})();
+
+/* scroll spy */
+const tabs=[...document.querySelectorAll('#tabs a')],tocs=[...document.querySelectorAll('#toc a')];const secEls=SECTIONS.map(s=>document.getElementById(s[0]));
+const spy=()=>{let cur=0;secEls.forEach((s,i)=>{if(s.getBoundingClientRect().top<140)cur=i;});tabs.forEach((t,i)=>t.classList.toggle('active',i===cur));tocs.forEach((t,i)=>t.classList.toggle('active',i===cur));const a=tabs[cur];if(a&&getComputedStyle(a.parentNode).display!=='none')a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});document.getElementById('upBtn').classList.toggle('show',scrollY>600);document.getElementById('progress').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';};
+addEventListener('scroll',spy,{passive:true});spy();
+document.getElementById('upBtn').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* theme */
+const root=document.documentElement;const savedT=localStorage.getItem('ac-theme');if(savedT)root.dataset.theme=savedT;
+const setIco=()=>document.getElementById('themeIco').textContent=root.dataset.theme==='dark'?'☀︎':'☾';setIco();
+document.getElementById('themeBtn').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('ac-theme',root.dataset.theme);setIco();};
+
+/* search */
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const normKeep=s=>[...s].map(ch=>{const n=ch.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();return n.length===1?n:ch;}).join('');
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function hl(t,re){const n=normKeep(t);let out='',last=0,m;re.lastIndex=0;while((m=re.exec(n))){out+=esc(t.slice(last,m.index))+'<mark>'+esc(t.slice(m.index,m.index+m[0].length))+'</mark>';last=m.index+m[0].length;if(!m[0].length)re.lastIndex++;}return out+esc(t.slice(last));}
+const INDEX=[];SECTIONS.forEach(s=>{const sec=document.getElementById(s[0]);sec.querySelectorAll('h3,h4,p,li,dd,dt,.kpi,.ev').forEach(el=>{const t=el.textContent.replace(/\s+/g,' ').trim();if(t.length>12)INDEX.push({sec:s[1],id:s[0],t,el});});});
+const q=document.getElementById('q'),panel=document.getElementById('searchPanel'),box=document.getElementById('searchBox');
+function doSearch(){const v=q.value.trim();box.classList.toggle('has',v.length>0);if(v.length<2){panel.classList.remove('open');return;}
+ const words=norm(v).split(/\s+/).filter(Boolean);const hits=INDEX.map(it=>{const n=norm(it.t);let score=0;words.forEach(w=>{if(n.includes(w))score+=w.length;});return {it,score};}).filter(h=>h.score>0).sort((a,b)=>b.score-a.score).slice(0,14);
+ if(!hits.length){panel.innerHTML=`<div class="none">Aucun résultat pour « ${v} ». Essayez : ICE, religion, Texas, caution, GED, Securus, exécutions, femmes.</div>`;panel.classList.add('open');return;}
+ const re=new RegExp('('+words.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')','gi');
+ panel.innerHTML=`<div style="padding:6px 12px;font-size:12px;color:var(--faint)">${hits.length} résultat${hits.length>1?'s':''}</div>`+hits.map((h,i)=>`<a class="hit" href="#${h.it.id}" data-i="${i}"><div class="sec">${h.it.sec}</div><div class="txt">${hl(h.it.t.slice(0,220),re)}${h.it.t.length>220?'…':''}</div></a>`).join('');
+ panel.classList.add('open');panel.querySelectorAll('.hit').forEach((a,i)=>a.addEventListener('click',()=>{panel.classList.remove('open');setTimeout(()=>{const el=hits[i].it.el;el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid var(--amber)';el.style.borderRadius='6px';setTimeout(()=>el.style.outline='',2500);},50);}));}
+q.addEventListener('input',doSearch);q.addEventListener('focus',doSearch);
+document.getElementById('qClear').onclick=()=>{q.value='';doSearch();q.focus();};
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}if(e.key==='Escape'){panel.classList.remove('open');q.blur();}});
+document.addEventListener('click',e=>{if(!panel.contains(e.target)&&!box.contains(e.target))panel.classList.remove('open');});
+
+/* simulateur */
+(function(){const st=document.getElementById('simState'),y=document.getElementById('simYears'),n=document.getElementById('simN');
+ const run=()=>{const c=+st.value,yy=+y.value,nn=Math.max(1,+n.value||1);document.getElementById('simYearsV').textContent=yy+' an'+(yy>1?'s':'');const tot=c*yy*nn;document.getElementById('simOut').textContent=money(tot);document.getElementById('simOut2').textContent=`${fmt(c)} $ par an × ${yy} an${yy>1?'s':''} × ${fmt(nn)} personne${nn>1?'s':''}. À titre de comparaison, une année d’université publique coûte environ 11 000 $ de frais de scolarité ; un salaire médian américain est de 61 000 $ par an.`;};
+ [st,y,n].forEach(e=>e.addEventListener('input',run));run();
+ const cs=document.getElementById('simCountry');const runC=()=>{const [pop,rate]=cs.value.split('|').map(Number);const name=cs.options[cs.selectedIndex].text;const us=Math.round(pop*1e6*580/1e5),act=Math.round(pop*1e6*rate/1e5);document.getElementById('simC1').textContent=fmt(us)+' détenus';document.getElementById('simC2').textContent=`${name} au taux américain (580 pour 100 000), contre environ ${fmt(act)} aujourd’hui (taux de ${rate}) : ${(us/act).toLocaleString('fr-FR',{maximumFractionDigits:1})} fois plus.`;document.getElementById('simBars').innerHTML=[['Aujourd’hui',act],['Taux américain',us]].map(r=>`<div class="r"><span>${r[0]}</span><div class="b"><i data-w="${Math.round(r[1]/us*100)}%" style="width:${Math.round(r[1]/us*100)}%;background:${r[0]==='Aujourd’hui'?'var(--steel)':'var(--amber)'}"></i></div><span class="n">${fmt(r[1])}</span></div>`).join('');};
+ cs.addEventListener('change',runC);runC();})();
+
+/* quiz */
+(function(){const el=document.getElementById("quizBox");let score=0,done=0;el.innerHTML=QUIZ.map((qq,i)=>`<div class="q" id="q${i}"><div class="qt">${i+1}. ${qq[0]}</div><div class="opts">${qq[1].map((o,j)=>`<button class="opt" data-q="${i}" data-j="${j}">${o}</button>`).join('')}</div><div class="exp">${qq[3]}</div></div>`).join('');
+ el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,j=+b.dataset.j,qd=document.getElementById('q'+i);if(qd.classList.contains('done'))return;qd.classList.add('done');qd.querySelectorAll('.opt').forEach((o,k)=>{if(k===QUIZ[i][2])o.classList.add('ok');else if(k===j)o.classList.add('ko');o.disabled=true;});if(j===QUIZ[i][2])score++;done++;if(done===QUIZ.length){const s=document.getElementById('quizScore');s.style.display='block';s.innerHTML=`<b>Score : ${score} / ${QUIZ.length}.</b> ${score>=9?'Vous maîtrisez le sujet mieux que la plupart des journalistes.':score>=6?'Solide. Le rapport intégré comblera le reste.':'La section Panorama est un bon point de départ.'}`;}});})();
+
+/* offence detail */
+document.getElementById('offDetail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const o=STATE_OFF[+b.dataset.i];const d=document.getElementById('offDetail');let box=d.querySelector('.det');if(!box){box=document.createElement('div');box.className='det';box.style.marginTop='10px';d.appendChild(box);}box.innerHTML=hbars(o.sub.map(s=>({k:s[0],v:s[1],c:o.c})),{lw:220,rh:26});box.querySelectorAll('rect.bar').forEach(r=>{r.style.transition='all .8s';requestAnimationFrame(()=>r.setAttribute('width',r.dataset.w));});bindTips(box);});
+</script>
+</body>
+</html>
